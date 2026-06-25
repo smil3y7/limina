@@ -1,0 +1,2524 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Limina — Sentria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+
+<meta name="theme-color" content="#0c0d0f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f3ef" media="(prefers-color-scheme: light)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Limina">
+<meta name="application-name" content="Limina">
+<meta name="description" content="Auditory environments for sleep, hypnagogic transition, and reflective awareness. Part of the Sentria ecosystem.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiMwYzBkMGYiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNi4wLDE2LjApIj48cGF0aCBkPSJNIC04Ljk2IDAgQSA4Ljk2IDguOTYgMCAwIDEgOC45NiAwIiBmaWxsPSIjYjRhNWQyIiBmaWxsLW9wYWNpdHk9IjAuMTMiIHN0cm9rZT0iI2I0YTVkMiIgc3Ryb2tlLXdpZHRoPSIwLjgwIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48bGluZSB4MT0iLTEyLjE2IiB5MT0iMCIgeDI9IjEyLjE2IiB5Mj0iMCIgc3Ryb2tlPSIjYjRhNWQyIiBzdHJva2Utd2lkdGg9IjAuODAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvZz48L3N2Zz4=">
+<link rel="icon" type="image/svg+xml" sizes="16x16" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE2IDE2Ij48cmVjdCB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGZpbGw9IiMwYzBkMGYiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4LjAsOC4wKSI+PHBhdGggZD0iTSAtNC40OCAwIEEgNC40OCA0LjQ4IDAgMCAxIDQuNDggMCIgZmlsbD0iI2I0YTVkMiIgZmlsbC1vcGFjaXR5PSIwLjEzIiBzdHJva2U9IiNiNGE1ZDIiIHN0cm9rZS13aWR0aD0iMC40MCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGxpbmUgeDE9Ii02LjA4IiB5MT0iMCIgeDI9IjYuMDgiIHkyPSIwIiBzdHJva2U9IiNiNGE1ZDIiIHN0cm9rZS13aWR0aD0iMC40MCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9nPjwvc3ZnPg==">
+<link rel="icon" type="image/svg+xml" sizes="32x32" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIGZpbGw9IiMwYzBkMGYiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxNi4wLDE2LjApIj48cGF0aCBkPSJNIC04Ljk2IDAgQSA4Ljk2IDguOTYgMCAwIDEgOC45NiAwIiBmaWxsPSIjYjRhNWQyIiBmaWxsLW9wYWNpdHk9IjAuMTMiIHN0cm9rZT0iI2I0YTVkMiIgc3Ryb2tlLXdpZHRoPSIwLjgwIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48bGluZSB4MT0iLTEyLjE2IiB5MT0iMCIgeDI9IjEyLjE2IiB5Mj0iMCIgc3Ryb2tlPSIjYjRhNWQyIiBzdHJva2Utd2lkdGg9IjAuODAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvZz48L3N2Zz4=">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiB2aWV3Qm94PSIwIDAgMTgwIDE4MCI+PHJlY3Qgd2lkdGg9IjE4MCIgaGVpZ2h0PSIxODAiIGZpbGw9IiMwYzBkMGYiLz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5MC4wLDkwLjApIj48cGF0aCBkPSJNIC01MC40MCAwIEEgNTAuNDAgNTAuNDAgMCAwIDEgNTAuNDAgMCIgZmlsbD0iI2I0YTVkMiIgZmlsbC1vcGFjaXR5PSIwLjEzIiBzdHJva2U9IiNiNGE1ZDIiIHN0cm9rZS13aWR0aD0iNC41MCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGxpbmUgeDE9Ii02OC40MCIgeTE9IjAiIHgyPSI2OC40MCIgeTI9IjAiIHN0cm9rZT0iI2I0YTVkMiIgc3Ryb2tlLXdpZHRoPSI0LjUwIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L2c+PC9zdmc+">
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIkxpbWluYSBcdTIwMTQgU2VudHJpYSIsICJzaG9ydF9uYW1lIjogIkxpbWluYSIsICJkZXNjcmlwdGlvbiI6ICJBdWRpdG9yeSBlbnZpcm9ubWVudHMgZm9yIHNsZWVwLCBoeXBuYWdvZ2ljIHRyYW5zaXRpb24sIGFuZCByZWZsZWN0aXZlIGF3YXJlbmVzcy4iLCAic3RhcnRfdXJsIjogIi8iLCAiZGlzcGxheSI6ICJzdGFuZGFsb25lIiwgIm9yaWVudGF0aW9uIjogInBvcnRyYWl0IiwgImJhY2tncm91bmRfY29sb3IiOiAiIzBjMGQwZiIsICJ0aGVtZV9jb2xvciI6ICIjMGMwZDBmIiwgImNhdGVnb3JpZXMiOiBbImhlYWx0aCIsICJsaWZlc3R5bGUiLCAibXVzaWMiXSwgImljb25zIjogW3sic3JjIjogImRhdGE6aW1hZ2Uvc3ZnK3htbDtiYXNlNjQsUEhOMlp5QjRiV3h1Y3owaWFIUjBjRG92TDNkM2R5NTNNeTV2Y21jdk1qQXdNQzl6ZG1jaUlIZHBaSFJvUFNJeE9USWlJR2hsYVdkb2REMGlNVGt5SWlCMmFXVjNRbTk0UFNJd0lEQWdNVGt5SURFNU1pSStQSEpsWTNRZ2QybGtkR2c5SWpFNU1pSWdhR1ZwWjJoMFBTSXhPVElpSUdacGJHdzlJaU13WXpCa01HWWlMejQ4WnlCMGNtRnVjMlp2Y20wOUluUnlZVzV6YkdGMFpTZzVOaTR3TERrMkxqQXBJajQ4Y0dGMGFDQmtQU0pOSUMwMU15NDNOaUF3SUVFZ05UTXVOellnTlRNdU56WWdNQ0F3SURFZ05UTXVOellnTUNJZ1ptbHNiRDBpSTJJMFlUVmtNaUlnWm1sc2JDMXZjR0ZqYVhSNVBTSXdMakV6SWlCemRISnZhMlU5SWlOaU5HRTFaRElpSUhOMGNtOXJaUzEzYVdSMGFEMGlOQzQ0TUNJZ2MzUnliMnRsTFd4cGJtVmpZWEE5SW5KdmRXNWtJaTgrUEd4cGJtVWdlREU5SWkwM01pNDVOaUlnZVRFOUlqQWlJSGd5UFNJM01pNDVOaUlnZVRJOUlqQWlJSE4wY205clpUMGlJMkkwWVRWa01pSWdjM1J5YjJ0bExYZHBaSFJvUFNJMExqZ3dJaUJ6ZEhKdmEyVXRiR2x1WldOaGNEMGljbTkxYm1RaUx6NDhMMmMrUEM5emRtYysiLCAic2l6ZXMiOiAiMTkyeDE5MiIsICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiLCAicHVycG9zZSI6ICJhbnkifSwgeyJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sO2Jhc2U2NCxQSE4yWnlCNGJXeHVjejBpYUhSMGNEb3ZMM2QzZHk1M015NXZjbWN2TWpBd01DOXpkbWNpSUhkcFpIUm9QU0kxTVRJaUlHaGxhV2RvZEQwaU5URXlJaUIyYVdWM1FtOTRQU0l3SURBZ05URXlJRFV4TWlJK1BISmxZM1FnZDJsa2RHZzlJalV4TWlJZ2FHVnBaMmgwUFNJMU1USWlJR1pwYkd3OUlpTXdZekJrTUdZaUx6NDhaeUIwY21GdWMyWnZjbTA5SW5SeVlXNXpiR0YwWlNneU5UWXVNQ3d5TlRZdU1Da2lQanh3WVhSb0lHUTlJazBnTFRFME15NHpOaUF3SUVFZ01UUXpMak0ySURFME15NHpOaUF3SURBZ01TQXhORE11TXpZZ01DSWdabWxzYkQwaUkySTBZVFZrTWlJZ1ptbHNiQzF2Y0dGamFYUjVQU0l3TGpFeklpQnpkSEp2YTJVOUlpTmlOR0UxWkRJaUlITjBjbTlyWlMxM2FXUjBhRDBpTVRJdU9EQWlJSE4wY205clpTMXNhVzVsWTJGd1BTSnliM1Z1WkNJdlBqeHNhVzVsSUhneFBTSXRNVGswTGpVMklpQjVNVDBpTUNJZ2VESTlJakU1TkM0MU5pSWdlVEk5SWpBaUlITjBjbTlyWlQwaUkySTBZVFZrTWlJZ2MzUnliMnRsTFhkcFpIUm9QU0l4TWk0NE1DSWdjM1J5YjJ0bExXeHBibVZqWVhBOUluSnZkVzVrSWk4K1BDOW5Qand2YzNablBnPT0iLCAic2l6ZXMiOiAiNTEyeDUxMiIsICJ0eXBlIjogImltYWdlL3N2Zyt4bWwiLCAicHVycG9zZSI6ICJhbnkgbWFza2FibGUifV19">
+<script>if('serviceWorker' in navigator)navigator.serviceWorker.register('/sw.js').catch(function(){});</script>
+
+<style>
+:root {
+  --bg: #0c0d0f;
+  --bg2: #111318;
+  --bg3: #181b22;
+  --surface: rgba(255,255,255,0.04);
+  --surface-hover: rgba(255,255,255,0.07);
+  --border: rgba(255,255,255,0.07);
+  --border-active: rgba(180,165,210,0.35);
+  --text-primary: #e8e4de;
+  --text-secondary: rgba(232,228,222,0.5);
+  --text-tertiary: rgba(232,228,222,0.28);
+  --accent: #b4a5d2;
+  --accent2: #8fa8c8;
+  --accent-glow: rgba(180,165,210,0.15);
+  --warm: #c9a87c;
+  --radius: 16px;
+  --radius-sm: 10px;
+  --transition: 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+[data-theme="light"] {
+  --bg: #f5f3ef;
+  --bg2: #edeae4;
+  --bg3: #e4e0d8;
+  --surface: rgba(0,0,0,0.04);
+  --surface-hover: rgba(0,0,0,0.07);
+  --border: rgba(0,0,0,0.08);
+  --border-active: rgba(100,80,160,0.3);
+  --text-primary: #1c1a18;
+  --text-secondary: rgba(28,26,24,0.55);
+  --text-tertiary: rgba(28,26,24,0.3);
+  --accent: #6450a0;
+  --accent2: #3d6a9a;
+  --accent-glow: rgba(100,80,160,0.1);
+  --warm: #8a6030;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background var(--transition), color var(--transition);
+  overflow-x: hidden;
+}
+
+/* Ambient background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(80,60,140,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 90%, rgba(50,80,130,0.07) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity var(--transition);
+}
+[data-theme="light"] body::before {
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, rgba(100,80,180,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 90%, rgba(50,80,160,0.05) 0%, transparent 60%);
+}
+
+/* Layout */
+.app {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 40px 0 60px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  color: var(--text-primary);
+}
+
+.brand-tagline {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+}
+
+.header-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.ctrl-btn {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.ctrl-btn:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+  border-color: var(--border-active);
+}
+.ctrl-btn.active {
+  color: var(--accent);
+  border-color: var(--border-active);
+  background: var(--accent-glow);
+}
+
+/* Intro text */
+.intro {
+  margin-bottom: 56px;
+}
+
+.intro-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.intro-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 5vw, 50px);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+}
+
+.intro-headline em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.intro-body {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 520px;
+}
+
+/* Now playing bar */
+.now-playing {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: all var(--transition);
+}
+
+.now-playing.hidden { display: none; }
+
+.np-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.np-info {}
+.np-label {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.np-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+.np-duration-label {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin-top: 2px;
+}
+
+.np-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.np-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.np-btn:hover {
+  border-color: var(--border-active);
+  color: var(--text-primary);
+  background: var(--surface-hover);
+}
+.np-btn.play-btn {
+  width: 44px;
+  height: 44px;
+  background: var(--accent-glow);
+  border-color: var(--border-active);
+  color: var(--accent);
+}
+.np-btn.play-btn:hover {
+  background: rgba(180,165,210,0.25);
+}
+.np-btn svg { pointer-events: none; }
+
+/* Progress */
+.np-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.progress-track {
+  height: 2px;
+  background: var(--border);
+  border-radius: 1px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  border-radius: 1px;
+  width: 0%;
+  transition: width 0.5s linear;
+}
+.progress-animated .progress-fill {
+  animation: progressPulse 3s ease-in-out infinite alternate;
+}
+@keyframes progressPulse {
+  from { opacity: 0.6; }
+  to { opacity: 1; }
+}
+.np-time {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-tertiary);
+}
+
+/* Volume */
+.np-bottom {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.vol-label {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.08em;
+  min-width: 50px;
+}
+.vol-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 2px;
+  background: var(--border);
+  border-radius: 1px;
+  outline: none;
+  flex: 1;
+  cursor: pointer;
+}
+.vol-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.vol-slider::-webkit-slider-thumb:hover { transform: scale(1.3); }
+
+/* Section heading */
+.section-heading {
+  margin-bottom: 24px;
+}
+.section-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+/* Programs grid */
+.programs {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  margin-bottom: 56px;
+}
+
+.program-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 28px 24px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2px;
+}
+
+.program-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: 2px 0 0 2px;
+}
+
+.program-card:hover {
+  background: var(--surface-hover);
+  border-color: var(--border-active);
+  transform: translateX(3px);
+}
+
+.program-card:hover::before { opacity: 0.6; }
+
+.program-card.active {
+  background: var(--accent-glow);
+  border-color: var(--border-active);
+}
+.program-card.active::before { opacity: 1; }
+
+.pc-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.pc-left { flex: 1; }
+
+.pc-number {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--text-tertiary);
+  margin-bottom: 5px;
+}
+
+.pc-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.pc-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  flex-shrink: 0;
+  margin-left: 16px;
+  font-size: 15px;
+  transition: all 0.3s;
+}
+.program-card:hover .pc-icon, .program-card.active .pc-icon {
+  border-color: var(--border-active);
+  color: var(--accent);
+  background: var(--accent-glow);
+}
+
+.pc-desc {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 18px;
+}
+
+.pc-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pc-durations {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.dur-pill {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  color: var(--text-tertiary);
+  cursor: pointer;
+  transition: all 0.2s;
+  background: none;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0.05em;
+}
+.dur-pill:hover, .dur-pill.active {
+  border-color: var(--border-active);
+  color: var(--accent);
+  background: var(--accent-glow);
+}
+
+.pc-play-hint {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.1em;
+}
+.program-card.active .pc-play-hint {
+  color: var(--accent);
+}
+
+/* Session timer display */
+.np-session-info {
+  display: flex;
+  gap: 20px;
+  font-size: 11px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.08em;
+}
+.np-session-info span { color: var(--accent); }
+
+/* Expanded program detail */
+.program-detail {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.25,0.46,0.45,0.94), opacity 0.4s ease;
+  opacity: 0;
+}
+.program-detail.open {
+  max-height: 300px;
+  opacity: 1;
+}
+.program-detail-inner {
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.pd-col {}
+.pd-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+.pd-value {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.pd-tone {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.tone-tag {
+  font-size: 11px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  color: var(--text-tertiary);
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--border);
+  padding-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  color: var(--text-tertiary);
+}
+.footer-note {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  max-width: 300px;
+  text-align: right;
+  line-height: 1.6;
+}
+
+/* Waveform visualizer */
+.waveform {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 20px;
+}
+.wave-bar {
+  width: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+  opacity: 0.5;
+  transition: height 0.1s;
+}
+.playing .wave-bar {
+  animation: waveAnim 1.2s ease-in-out infinite;
+  opacity: 0.8;
+}
+.wave-bar:nth-child(1) { animation-delay: 0s; height: 4px; }
+.wave-bar:nth-child(2) { animation-delay: 0.1s; height: 8px; }
+.wave-bar:nth-child(3) { animation-delay: 0.2s; height: 14px; }
+.wave-bar:nth-child(4) { animation-delay: 0.15s; height: 10px; }
+.wave-bar:nth-child(5) { animation-delay: 0.05s; height: 6px; }
+@keyframes waveAnim {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}
+
+/* Breathing guide */
+.breath-guide {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  margin-top: 12px;
+}
+.breath-guide.visible { display: flex; }
+.breath-circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: breathe 8s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%, 100% { transform: scale(0.6); opacity: 0.4; }
+  40% { transform: scale(1.3); opacity: 1; }
+  60% { transform: scale(1.3); opacity: 1; }
+}
+.breath-text {
+  font-size: 12px;
+  color: var(--text-secondary);
+  letter-spacing: 0.06em;
+}
+
+/* ── Onboarding headphone banner ── */
+.hp-banner {
+  background: var(--surface);
+  border: 1px solid var(--border-active);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: fadeUp 0.6s cubic-bezier(0.25,0.46,0.45,0.94) both;
+  animation-delay: 0.1s;
+}
+.hp-banner.hidden { display: none; }
+.hp-banner-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.hp-banner-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent-glow);
+  border: 1px solid var(--border-active);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.hp-banner-text {}
+.hp-banner-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.hp-banner-body {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+.hp-banner-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.hp-btn-primary {
+  background: var(--accent-glow);
+  border: 1px solid var(--border-active);
+  color: var(--accent);
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.hp-btn-primary:hover { background: rgba(180,165,210,0.25); }
+.hp-btn-ghost {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-tertiary);
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.hp-btn-ghost:hover { border-color: var(--border-active); color: var(--text-secondary); }
+
+/* ── Headphone test overlay ── */
+.hp-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.hp-overlay.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+.hp-overlay-bg {
+  position: absolute;
+  inset: 0;
+  background: rgba(12,13,15,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+[data-theme="light"] .hp-overlay-bg {
+  background: rgba(245,243,239,0.88);
+}
+.hp-modal {
+  position: relative;
+  z-index: 1;
+  background: var(--bg3);
+  border: 1px solid var(--border-active);
+  border-radius: var(--radius);
+  padding: 36px 32px;
+  max-width: 420px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.hp-modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--text-primary);
+  letter-spacing: 0.04em;
+}
+.hp-step { display: none; flex-direction: column; gap: 16px; }
+.hp-step.active { display: flex; }
+
+/* Step 1 */
+.hp-step-label {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+}
+.hp-step-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+/* Step 2 — stereo visualizer */
+.hp-stereo {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+.hp-stereo-field {
+  width: 100%;
+  height: 48px;
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+  background: var(--surface);
+}
+.hp-stereo-dot {
+  position: absolute;
+  top: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translateY(-50%);
+  transition: left 1.2s cubic-bezier(0.45,0.05,0.55,0.95);
+  box-shadow: 0 0 12px var(--accent);
+  left: 8%;
+}
+.hp-stereo-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-align: center;
+  min-height: 20px;
+  transition: opacity 0.3s;
+}
+.hp-stereo-lr {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--text-tertiary);
+}
+
+/* Step 3 */
+.hp-result-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.hp-tips {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+.hp-tips-title {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.hp-tip {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-left: 12px;
+  position: relative;
+}
+.hp-tip::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+.hp-success {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: var(--accent-glow);
+  border: 1px solid var(--border-active);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--accent);
+}
+.hp-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  padding: 4px;
+  transition: color 0.2s;
+}
+.hp-modal-close:hover { color: var(--text-primary); }
+
+@media (max-width: 480px) {
+  .hp-modal { padding: 28px 20px; }
+}
+
+/* ── Header headphone check button ── */
+.ctrl-btn-icon {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  border-radius: 8px;
+  padding: 7px 10px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ctrl-btn-icon:hover {
+  background: var(--surface-hover);
+  color: var(--text-primary);
+  border-color: var(--border-active);
+}
+.ctrl-btn-icon.highlight {
+  color: var(--accent);
+  border-color: var(--border-active);
+  background: var(--accent-glow);
+}
+.ctrl-btn-icon svg { pointer-events: none; display: block; }
+
+/* ── Onboarding banner ── */
+.mini-player {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  transform: translateY(-100%);
+  transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.mini-player.visible {
+  transform: translateY(0);
+  pointer-events: all;
+}
+.mini-player-inner {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 24px;
+  background: var(--bg3);
+  border: 1px solid var(--border-active);
+  border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+[data-theme="light"] .mini-player-inner {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+.mp-waveform {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 16px;
+  flex-shrink: 0;
+}
+.mp-waveform .wave-bar {
+  width: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+  opacity: 0.5;
+}
+.mp-waveform.playing .wave-bar {
+  animation: waveAnim 1.2s ease-in-out infinite;
+  opacity: 0.8;
+}
+.mp-info {
+  flex: 1;
+  min-width: 0;
+}
+.mp-label {
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+}
+.mp-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mp-progress {
+  flex: 1;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.mp-track {
+  height: 2px;
+  background: var(--border);
+  border-radius: 1px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.mp-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  border-radius: 1px;
+  width: 0%;
+  transition: width 0.5s linear;
+}
+.mp-time {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  text-align: right;
+}
+.mp-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.mp-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.mp-btn:hover {
+  border-color: var(--border-active);
+  color: var(--text-primary);
+}
+.mp-btn.mp-play {
+  background: var(--accent-glow);
+  border-color: var(--border-active);
+  color: var(--accent);
+}
+.mp-btn.mp-play:hover { background: rgba(180,165,210,0.25); }
+.mp-btn svg { pointer-events: none; }
+.mp-scroll-hint {
+  font-size: 10px;
+  color: var(--text-tertiary);
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+.mp-scroll-hint:hover { color: var(--accent); }
+
+@media (max-width: 600px) {
+  .mini-player-inner { margin: 0 12px; padding: 8px 14px; }
+  .mp-progress { display: none; }
+  .mp-scroll-hint { display: none; }
+}
+
+/* Notification/toast */
+.toast {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--bg3);
+  border: 1px solid var(--border-active);
+  border-radius: 30px;
+  padding: 10px 22px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  letter-spacing: 0.08em;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+  pointer-events: none;
+  z-index: 100;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* Mobile */
+@media (max-width: 600px) {
+  .app { padding: 0 16px 60px; }
+  header { padding: 24px 0 40px; }
+  .program-detail-inner { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 12px; align-items: flex-start; }
+  .footer-note { text-align: left; }
+  .np-session-info { flex-wrap: wrap; }
+}
+
+/* Fade in */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.app > * {
+  animation: fadeUp 0.7s cubic-bezier(0.25,0.46,0.45,0.94) both;
+}
+header { animation-delay: 0s; }
+.intro { animation-delay: 0.08s; }
+.now-playing { animation-delay: 0.12s; }
+.section-heading { animation-delay: 0.16s; }
+.programs { animation-delay: 0.2s; }
+</style>
+</head>
+<body>
+
+<!-- Sticky Mini Player -->
+<div class="mini-player" id="miniPlayer">
+  <div class="mini-player-inner">
+    <div class="mp-waveform" id="mpWaveform">
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+      <div class="wave-bar"></div>
+    </div>
+    <div class="mp-info">
+      <div class="mp-label" data-t="nowPlayingLabel"></div>
+      <div class="mp-title" id="mpTitle">—</div>
+    </div>
+    <div class="mp-progress">
+      <div class="mp-track" onclick="seekMiniProgress(event)">
+        <div class="mp-fill" id="mpFill"></div>
+      </div>
+      <div class="mp-time" id="mpTime">0:00</div>
+    </div>
+    <div class="mp-controls">
+      <button class="mp-btn mp-play" onclick="togglePlay()">
+        <svg id="mpPlayIcon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      </button>
+      <button class="mp-btn" onclick="stopSession()">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+      </button>
+    </div>
+    <div class="mp-scroll-hint" onclick="scrollToPlayer()" data-t="miniScrollHint"></div>
+  </div>
+</div>
+
+<div class="app">
+
+  <header>
+    <div class="brand">
+      <div class="brand-name">LIMINA</div>
+      <div class="brand-tagline"><span style="opacity:0.4;letter-spacing:0.15em">SENTRIA</span> &nbsp;·&nbsp; <span data-t="tagline"></span></div>
+    </div>
+    <div class="header-controls">
+      <button class="ctrl-btn-icon" id="hpCheckHeaderBtn" onclick="openHpTest()" title="">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+          <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+        </svg>
+      </button>
+      <button class="ctrl-btn" id="langToggle" onclick="toggleLang()"></button>
+      <button class="ctrl-btn" id="themeToggle" onclick="toggleTheme()"></button>
+    </div>
+  </header>
+
+  <div class="intro">
+    <div class="intro-eyebrow" data-t="introEyebrow"></div>
+    <h1 class="intro-headline" data-t-html="introHeadline"></h1>
+    <p class="intro-body" data-t="introBody"></p>
+  </div>
+
+  <!-- Headphone onboarding banner -->
+  <div class="hp-banner hidden" id="hpBanner">
+    <div class="hp-banner-top">
+      <div class="hp-banner-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
+          <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+        </svg>
+      </div>
+      <div class="hp-banner-text">
+        <div class="hp-banner-title" data-t="hpOnboardTitle"></div>
+        <div class="hp-banner-body" data-t="hpOnboardBody"></div>
+      </div>
+    </div>
+    <div class="hp-banner-actions">
+      <button class="hp-btn-primary" onclick="openHpTest(true)" data-t="hpOnboardTest"></button>
+      <button class="hp-btn-ghost" onclick="dismissBanner()" data-t="hpOnboardSkip"></button>
+    </div>
+  </div>
+
+  <!-- Now Playing -->
+  <div class="now-playing hidden" id="nowPlaying">
+    <div class="np-top">
+      <div class="np-info">
+        <div class="np-label" data-t="nowPlayingLabel"></div>
+        <div class="np-title" id="npTitle">—</div>
+        <div class="np-duration-label" id="npDurationLabel"></div>
+      </div>
+      <div class="np-controls">
+        <div class="waveform" id="waveform">
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+          <div class="wave-bar"></div>
+        </div>
+        <button class="np-btn" onclick="skipBack()" title="Restart">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.51"/>
+          </svg>
+        </button>
+        <button class="np-btn play-btn" id="playBtn" onclick="togglePlay()">
+          <svg id="playIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </button>
+        <button class="np-btn" onclick="stopSession()" title="Stop">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="np-progress">
+      <div class="progress-track" onclick="seekProgress(event)">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="np-time">
+        <span id="timeElapsed">0:00</span>
+        <span id="timeTotal">—</span>
+      </div>
+    </div>
+
+    <div class="np-bottom">
+      <span class="vol-label" data-t="volumeLabel"></span>
+      <input class="vol-slider" type="range" min="0" max="1" step="0.01" value="0.75" id="volSlider" oninput="setVolume(this.value)">
+    </div>
+
+    <div class="breath-guide" id="breathGuide">
+      <div class="breath-circle"></div>
+      <div class="breath-text" data-t="breathText"></div>
+    </div>
+  </div>
+
+  <!-- Programs -->
+  <div class="section-heading">
+    <div class="section-eyebrow" data-t="programsEyebrow"></div>
+    <div class="section-title" data-t="programsTitle"></div>
+  </div>
+
+  <div class="programs" id="programsContainer"></div>
+
+  <footer>
+    <div style="display:flex;flex-direction:column;gap:4px">
+      <div class="footer-brand">LIMINA <span style="opacity:0.35;font-size:12px;letter-spacing:0.1em">/ SENTRIA</span></div>
+      <div style="font-size:11px;color:var(--text-tertiary);letter-spacing:0.12em">v0.3</div>
+    </div>
+    <div class="footer-note" data-t="footerNote"></div>
+  </footer>
+
+</div>
+
+<!-- Headphone test overlay -->
+<div class="hp-overlay" id="hpOverlay">
+  <div class="hp-overlay-bg" onclick="closeHpTest()"></div>
+  <div class="hp-modal">
+    <button class="hp-modal-close" onclick="closeHpTest()">✕</button>
+    <div class="hp-modal-title" data-t="hpTestTitle"></div>
+
+    <!-- Step 1: Prepare -->
+    <div class="hp-step active" id="hpStep1">
+      <div class="hp-step-label" data-t="hpStep1Label"></div>
+      <div class="hp-step-desc" data-t="hpStep1Desc"></div>
+      <button class="hp-btn-primary" style="align-self:flex-start" onclick="startHpTest()" data-t="hpStep1Btn"></button>
+    </div>
+
+    <!-- Step 2: Stereo test -->
+    <div class="hp-step" id="hpStep2">
+      <div class="hp-stereo">
+        <div class="hp-stereo-lr"><span>L</span><span>R</span></div>
+        <div class="hp-stereo-field">
+          <div class="hp-stereo-dot" id="hpDot"></div>
+        </div>
+        <div class="hp-stereo-label" id="hpStereoLabel"></div>
+      </div>
+    </div>
+
+    <!-- Step 3: Result -->
+    <div class="hp-step" id="hpStep3">
+      <div class="hp-step-label" data-t="hpStep3Title"></div>
+      <div class="hp-result-actions">
+        <button class="hp-btn-primary" onclick="hpResult(true)" data-t="hpStep3Ok"></button>
+        <button class="hp-btn-ghost" onclick="hpResult(false)" data-t="hpStep3Fail"></button>
+      </div>
+    </div>
+
+    <!-- Step 4a: Success -->
+    <div class="hp-step" id="hpStep4ok">
+      <div class="hp-success">
+        <span>✓</span>
+        <span data-t="hpDone"></span>
+      </div>
+      <button class="hp-btn-ghost" style="align-self:flex-start;margin-top:4px" onclick="closeHpTest()" data-t="hpClose"></button>
+    </div>
+
+    <!-- Step 4b: Tips -->
+    <div class="hp-step" id="hpStep4fail">
+      <div class="hp-tips">
+        <div class="hp-tips-title" data-t="hpTipsTitle"></div>
+        <div id="hpTipsList"></div>
+      </div>
+      <button class="hp-btn-primary" style="align-self:flex-start" onclick="startHpTest()" data-t="hpStep1Btn"></button>
+      <button class="hp-btn-ghost" style="align-self:flex-start" onclick="closeHpTest()" data-t="hpClose"></button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ============================================================
+// TRANSLATIONS
+// ============================================================
+const T = {
+  en: {
+    tagline: "Dream Exploration Ecosystem",
+    introEyebrow: "Auditory Environments for Inner Exploration",
+    introHeadline: "Rest deeper.<br><em>Dream further.</em>",
+    introBody: "Limina offers carefully crafted auditory environments to support sleep preparation, hypnagogic transition, and reflective awareness. Each program is a spacious sonic ritual — unhurried, non-intrusive, and psychologically safe. For the full binaural experience, headphones are recommended.",
+    nowPlayingLabel: "Now Playing",
+    volumeLabel: "Volume",
+    breathText: "Follow the breath — slow inhale, long exhale",
+    programsEyebrow: "Auditory Programs",
+    programsTitle: "Choose your environment",
+    footerNote: "Limina uses auditory environments with layered ambient textures. Not a medical device. For reflective and sleep support only.",
+    themeLight: "Light",
+    themeDark: "Dark",
+    langToggle: "SL",
+    durationInfinite: "∞ Loop",
+    durationSleep: "Sleep mode",
+    durationWake: "Wake mode",
+    durationFocus: "Focus mode",
+    playHintIdle: "Tap to begin",
+    playHintActive: "Now playing",
+    miniScrollHint: "↑ View player",
+    hpCheckBtn: "Headphone check",
+    hpOnboardTitle: "Headphones recommended",
+    hpOnboardBody: "Limina uses binaural audio — two slightly different tones, one for each ear. This effect only works with headphones or earbuds. Speakers will play ambient sound, but without the binaural layer.",
+    hpOnboardTest: "Run headphone check",
+    hpOnboardSkip: "Continue with speakers",
+    hpTestTitle: "Headphone check",
+    hpStep1Label: "Get comfortable",
+    hpStep1Desc: "Put on your headphones and set the volume to a comfortable level.",
+    hpStep1Btn: "Begin test",
+    hpStep2Left: "You should hear this on your left",
+    hpStep2Right: "Now on your right",
+    hpStep2Both: "Now both together",
+    hpStep3Title: "How did it sound?",
+    hpStep3Ok: "Left and right were clear",
+    hpStep3Fail: "Something didn't sound right",
+    hpTipsTitle: "A few things to check:",
+    hpTips: ["Make sure headphones are fully plugged in", "Check that left (L) and right (R) are on the correct ears", "Check your system volume and audio output settings"],
+    hpDone: "You're ready — enjoy the session",
+    hpClose: "Close",
+    toastStopped: "Session ended",
+    toastRestarted: "Restarting from the beginning",
+    detailPurpose: "Purpose",
+    detailTone: "Emotional tone",
+    detailTextures: "Sound textures",
+    min: "min",
+    programs: [
+      {
+        number: "01",
+        name: "Deep Relaxation",
+        icon: "◌",
+        desc: "Prepare body and mind for sleep. A warm, grounding sonic space that invites the breath to slow and mental noise to settle.",
+        purpose: "Sleep preparation and physical tension release.",
+        tone: ["safe", "grounded", "warm", "slow exhale"],
+        textures: "Warm drones · soft pink noise · distant atmospheric layers · subtle harmonic resonance",
+        durations: [15, 30, 45],
+        breath: true,
+      },
+      {
+        number: "02",
+        name: "Hypnagogic Drift",
+        icon: "∿",
+        desc: "Float in the liminal space between waking and dreaming. An airy, suspended environment that supports gentle associative imagery.",
+        purpose: "Transition between wakefulness and dream onset.",
+        tone: ["drifting", "liminal", "suspended", "softly disorienting"],
+        textures: "Airy layers · distant echoes · evolving spatial field · subtle tonal swells",
+        durations: [20, 40],
+        specialDurations: ["∞ Loop"],
+        breath: false,
+      },
+      {
+        number: "03",
+        name: "Lucid Preparation",
+        icon: "◎",
+        desc: "Enter sleep with clear, open awareness. A spacious environment that nurtures quiet alertness within deep calm — a foundation for conscious dreaming practice.",
+        purpose: "Awareness-oriented sleep transition and lucid dreaming practice.",
+        tone: ["attentive calm", "silent awareness", "lucid stillness"],
+        textures: "Clear spacious ambience · gentle pulse sensation · layered evolving harmonics · subtle shimmer",
+        durations: [30, 45],
+        specialDurations: ["Sleep mode"],
+        breath: true,
+      },
+      {
+        number: "04",
+        name: "Recall Support",
+        icon: "⋯",
+        desc: "A soft morning environment for holding dream memories gently as they surface. Bright, clear, and open — like light through thin curtains.",
+        purpose: "Dream memory and gentle morning recollection.",
+        tone: ["reflective", "clear", "delicate", "emerging"],
+        textures: "Light airy ambience · soft morning textures · harmonic clarity · quiet openness",
+        durations: [10, 20],
+        specialDurations: ["Wake mode"],
+        breath: false,
+      },
+      {
+        number: "05",
+        name: "Gentle Awakening",
+        icon: "◑",
+        desc: "A slow, calm emergence from sleep. Sound gradually brightens and opens — not a wake-up call, but an invitation to return.",
+        purpose: "Calm transition from sleep into waking consciousness.",
+        tone: ["peaceful emergence", "calm presence", "non-jarring"],
+        textures: "Subtle brightness increase · evolving warmth · airy harmonic bloom · soft environmental layers",
+        durations: [10, 15],
+        specialDurations: ["Wake mode"],
+        breath: false,
+      },
+      {
+        number: "06",
+        name: "Reflective Focus",
+        icon: "◻",
+        desc: "A calm, restrained environment for writing, reflection, and dream exploration. Supports inward attention without inducing drowsiness.",
+        purpose: "Journaling, dream analysis, symbolic reflection, and atlas mapping.",
+        tone: ["contemplative", "organized", "attentive", "inwardly focused"],
+        textures: "Minimal ambient field · soft tonal continuity · slight spatial depth · low emotional intensity",
+        durations: [25, 45],
+        specialDurations: ["Focus mode"],
+        breath: false,
+      },
+      {
+        number: "07",
+        name: "Dream Descent",
+        icon: "▽",
+        desc: "A deep, slow journey downward into sleep. The quietest environment in Limina — for those who need stillness, not stimulus.",
+        purpose: "Deep sleep initiation for restless or overactive minds.",
+        tone: ["still", "deep", "unhurried", "profoundly quiet"],
+        textures: "Ultra-low drone · barely perceptible harmonic movement · enveloping ambient silence · rare soft pulses",
+        durations: [30, 60],
+        specialDurations: ["∞ Loop"],
+        breath: false,
+      },
+    ]
+  },
+  sl: {
+    tagline: "Ekosistem za raziskovanje sanj",
+    introEyebrow: "Zvočna okolja za notranje raziskovanje",
+    introHeadline: "Počivaj globlje.<br><em>Sanjaj dlje.</em>",
+    introBody: "Limina ponuja skrbno oblikovana zvočna okolja za pripravo na spanje, hipnagogični prehod in refleksivno zavedanje. Vsak program je prostoren zvočni ritual — brez hitenja, neinvaziven in psihološko varen. Za popolno binarno izkušnjo priporočamo slušalke.",
+    nowPlayingLabel: "Zdaj se predvaja",
+    volumeLabel: "Glasnost",
+    breathText: "Sledi dihu — počasen vdih, dolg izdih",
+    programsEyebrow: "Zvočni programi",
+    programsTitle: "Izberi svoje okolje",
+    footerNote: "Limina uporablja zvočna okolja s plastičnimi ambientalnimi teksturami. Ni medicinska naprava. Samo za podporo refleksiji in spanju.",
+    themeLight: "Svetla",
+    themeDark: "Temna",
+    langToggle: "EN",
+    durationInfinite: "∞ Zanka",
+    durationSleep: "Način spanja",
+    durationWake: "Način prebujanja",
+    durationFocus: "Način fokusa",
+    playHintIdle: "Tapni za začetek",
+    playHintActive: "Predvajam",
+    miniScrollHint: "↑ Prikaži predvajalnik",
+    hpCheckBtn: "Test slušalk",
+    hpOnboardTitle: "Priporočamo slušalke",
+    hpOnboardBody: "Limina uporablja binarni zvok — dva rahlo različna tona, eden za vsako uho. Ta učinek deluje samo s slušalkami ali ušesnimi vstavki. Zvočniki bodo predvajali ambientalni zvok, a brez binarne plasti.",
+    hpOnboardTest: "Zaženi test slušalk",
+    hpOnboardSkip: "Nadaljuj z zvočniki",
+    hpTestTitle: "Test slušalk",
+    hpStep1Label: "Priprava",
+    hpStep1Desc: "Nadeni si slušalke in nastavi glasnost na udobno raven.",
+    hpStep1Btn: "Začni test",
+    hpStep2Left: "To bi moral slišati na levi strani",
+    hpStep2Right: "Zdaj na desni strani",
+    hpStep2Both: "Zdaj skupaj",
+    hpStep3Title: "Kako je zvenelo?",
+    hpStep3Ok: "Levo in desno sta bili jasni",
+    hpStep3Fail: "Nekaj ni zvučalo prav",
+    hpTipsTitle: "Preveri naslednje:",
+    hpTips: ["Prepričaj se, da so slušalke pravilno priključene", "Preveri ali sta leva (L) in desna (R) na pravilnih ušesih", "Preveri sistemsko glasnost in nastavitve zvočnega izhoda"],
+    hpDone: "Pripravljeni ste — uživajte v seji",
+    hpClose: "Zapri",
+    toastStopped: "Seja je zaključena",
+    toastRestarted: "Vračam na začetek",
+    detailPurpose: "Namen",
+    detailTone: "Čustveni ton",
+    detailTextures: "Zvočne teksture",
+    min: "min",
+    programs: [
+      {
+        number: "01",
+        name: "Globoka sprostitev",
+        icon: "◌",
+        desc: "Priprava telesa in uma na spanje. Topel, uzemljujoč zvočni prostor, ki vabi dih, da se upočasni in mentalni hrup umiri.",
+        purpose: "Priprava na spanje in sproščanje fizičnih napetosti.",
+        tone: ["varno", "uzemljeno", "toplo", "počasen izdih"],
+        textures: "Topli droni · mehek rožnat šum · oddaljene atmosferske plasti · subtilna harmonična resonanca",
+        durations: [15, 30, 45],
+        breath: true,
+      },
+      {
+        number: "02",
+        name: "Hipnagogično lebdenje",
+        icon: "∿",
+        desc: "Lebdi v liminalnem prostoru med budnostjo in sanjanjem. Lahkotno, lebdečo okolje, ki podpira mehke asociativne podobe.",
+        purpose: "Prehod med budnostjo in nastopom sanj.",
+        tone: ["lebdeče", "liminalno", "lebdeče", "mehko dezorientirano"],
+        textures: "Lahkotne plasti · oddaljeni odmevi · razvijajoče se prostorsko polje · subtilni tonalni valovi",
+        durations: [20, 40],
+        specialDurations: ["∞ Zanka"],
+        breath: false,
+      },
+      {
+        number: "03",
+        name: "Priprava na lucidnost",
+        icon: "◎",
+        desc: "Vstopi v spanje s svetlim, odprtim zavedanjem. Prostorno okolje, ki neguje tiho budnost znotraj globoke umirjenosti — temelj za prakso zavestnega sanjanja.",
+        purpose: "Prehod v spanje z zavedanjem in praksa lucidnega sanjanja.",
+        tone: ["pozorna umirjenost", "tiho zavedanje", "lucidna tišina"],
+        textures: "Jasno prostorno okolje · nežna pulsacija · plastična razvijajoča se harmonika · subtilen lesk",
+        durations: [30, 45],
+        specialDurations: ["Način spanja"],
+        breath: true,
+      },
+      {
+        number: "04",
+        name: "Opora spominu sanj",
+        icon: "⋯",
+        desc: "Mehko jutranje okolje za nežno ohranjanje spominov sanj, ko prihajajo na površje. Svetlo, jasno in odprto — kot svetloba skozi tanke zavese.",
+        purpose: "Spomin na sanje in nežno jutranjo obnovo.",
+        tone: ["refleksivno", "jasno", "delikatno", "pojavljajoče se"],
+        textures: "Lahkotno ambientalno · mehke jutranje teksture · harmonična jasnost · tiha odprtost",
+        durations: [10, 20],
+        specialDurations: ["Način prebujanja"],
+        breath: false,
+      },
+      {
+        number: "05",
+        name: "Nežno prebujanje",
+        icon: "◑",
+        desc: "Počasno, mirno izhajanje iz spanja. Zvok se postopoma posveti in odpre — ni budilka, ampak vabilo k vrnitvi.",
+        purpose: "Umiren prehod iz spanja v budno zavest.",
+        tone: ["mirno izhajanje", "tiha prisotnost", "neboleče"],
+        textures: "Subtilno povečanje svetlosti · razvijajoča se toplota · lahkoten harmoničen razcvet · mehke ambientalne plasti",
+        durations: [10, 15],
+        specialDurations: ["Način prebujanja"],
+        breath: false,
+      },
+      {
+        number: "06",
+        name: "Refleksivni fokus",
+        icon: "◻",
+        desc: "Umirjeno, zadržano okolje za pisanje, refleksijo in raziskovanje sanj. Podpira notranjo pozornost brez zaspanosti.",
+        purpose: "Pisanje dnevnika, analiza sanj, simbolna refleksija in kartiranje atlasa.",
+        tone: ["kontemplativno", "organizirano", "pozorno", "notranje usmerjeno"],
+        textures: "Minimalno ambientalno polje · mehka tonalna kontinuiteta · rahla prostorska globina · nizka čustvena intenzivnost",
+        durations: [25, 45],
+        specialDurations: ["Način fokusa"],
+        breath: false,
+      },
+      {
+        number: "07",
+        name: "Spust v sanje",
+        icon: "▽",
+        desc: "Globoko, počasno potovanje navzdol v spanje. Najtišje okolje v Limini — za tiste, ki potrebujejo tišino, ne spodbude.",
+        purpose: "Globoka iniciacija spanja za nemirne ali preaktivne ume.",
+        tone: ["tiho", "globoko", "brez hitenja", "globoko mirno"],
+        textures: "Ultra-nizki dron · komaj zaznaven harmoničen gibanje · objemajoča ambientalna tišina · redki mehki pulzi",
+        durations: [30, 60],
+        specialDurations: ["∞ Zanka"],
+        breath: false,
+      },
+    ]
+  }
+};
+
+// ============================================================
+// STATE
+// ============================================================
+let lang = localStorage.getItem('limina-lang') || 'en';
+let theme = localStorage.getItem('limina-theme') || 'dark';
+let activeProgram = null;
+let selectedDuration = null; // in seconds
+let isPlaying = false;
+let audioCtx = null;
+let sessionNodes = {};
+let sessionStartTime = null;
+let sessionDuration = null; // seconds
+let progressInterval = null;
+let expandedProgram = null;
+
+// ============================================================
+// AUDIO ENGINE v2
+// ============================================================
+
+function getAudioContext() {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  // Always resume — handles browser autoplay policy
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  return audioCtx;
+}
+
+// Program configs — internal only, never exposed to UI
+const programAudioConfig = {
+  0: { // Deep Relaxation: 8→6 Hz, warm & grounded
+    binauralBase: 180, binauralStart: 8, binauralEnd: 6,
+    binauralGain: 0.07,
+    drones: [
+      { freq: 55,  type: 'sine',     gain: 0.18, lfoRate: 0.07,  lfoDepth: 0.06, pan: 0    },
+      { freq: 110, type: 'triangle', gain: 0.10, lfoRate: 0.05,  lfoDepth: 0.04, pan: -0.3 },
+      { freq: 82,  type: 'sine',     gain: 0.08, lfoRate: 0.11,  lfoDepth: 0.05, pan:  0.3 },
+      { freq: 165, type: 'triangle', gain: 0.05, lfoRate: 0.04,  lfoDepth: 0.03, pan:  0.5 },
+    ],
+    filterLFO: { base: 400, depth: 250, rate: 0.06 },
+    noise: { color: 'pink', gain: 0.055, cutoff: 700, lfoRate: 0.04, lfoDepth: 200 },
+    reverb: { decay: 6, wet: 0.45 },
+    shimmer: null,
+  },
+  1: { // Hypnagogic Drift: 7→5 Hz, airy & floating
+    binauralBase: 160, binauralStart: 7, binauralEnd: 5,
+    binauralGain: 0.065,
+    drones: [
+      { freq: 60,  type: 'sine',     gain: 0.12, lfoRate: 0.06,  lfoDepth: 0.05, pan:  0   },
+      { freq: 90,  type: 'sine',     gain: 0.09, lfoRate: 0.04,  lfoDepth: 0.04, pan: -0.5 },
+      { freq: 120, type: 'triangle', gain: 0.06, lfoRate: 0.08,  lfoDepth: 0.04, pan:  0.6 },
+      { freq: 180, type: 'sine',     gain: 0.04, lfoRate: 0.05,  lfoDepth: 0.03, pan: -0.4 },
+    ],
+    filterLFO: { base: 600, depth: 400, rate: 0.05 },
+    noise: { color: 'pink', gain: 0.04, cutoff: 900, lfoRate: 0.03, lfoDepth: 350 },
+    reverb: { decay: 9, wet: 0.6 },
+    shimmer: null,
+  },
+  2: { // Lucid Preparation: 6 Hz stable + awareness shimmer
+    binauralBase: 200, binauralStart: 6, binauralEnd: 6,
+    binauralGain: 0.07,
+    drones: [
+      { freq: 80,  type: 'sine',     gain: 0.13, lfoRate: 0.07,  lfoDepth: 0.05, pan:  0   },
+      { freq: 120, type: 'triangle', gain: 0.08, lfoRate: 0.05,  lfoDepth: 0.04, pan: -0.4 },
+      { freq: 240, type: 'sine',     gain: 0.05, lfoRate: 0.09,  lfoDepth: 0.04, pan:  0.4 },
+      { freq: 160, type: 'sine',     gain: 0.04, lfoRate: 0.06,  lfoDepth: 0.03, pan:  0.2 },
+    ],
+    filterLFO: { base: 800, depth: 300, rate: 0.08 },
+    noise: { color: 'white', gain: 0.025, cutoff: 1800, lfoRate: 0.06, lfoDepth: 600 },
+    reverb: { decay: 5, wet: 0.35 },
+    shimmer: { freq: 40, gain: 0.012 },
+  },
+  3: { // Recall Support: 9.5 Hz stable, bright & clear
+    binauralBase: 220, binauralStart: 9.5, binauralEnd: 9.5,
+    binauralGain: 0.06,
+    drones: [
+      { freq: 120, type: 'sine',     gain: 0.10, lfoRate: 0.08,  lfoDepth: 0.04, pan:  0   },
+      { freq: 240, type: 'triangle', gain: 0.07, lfoRate: 0.06,  lfoDepth: 0.03, pan: -0.3 },
+      { freq: 180, type: 'sine',     gain: 0.05, lfoRate: 0.10,  lfoDepth: 0.03, pan:  0.3 },
+    ],
+    filterLFO: { base: 1200, depth: 400, rate: 0.07 },
+    noise: { color: 'white', gain: 0.032, cutoff: 2200, lfoRate: 0.05, lfoDepth: 700 },
+    reverb: { decay: 4, wet: 0.3 },
+    shimmer: null,
+  },
+  4: { // Gentle Awakening: 7→10 Hz, brightening
+    binauralBase: 200, binauralStart: 7, binauralEnd: 10,
+    binauralGain: 0.065,
+    drones: [
+      { freq: 100, type: 'sine',     gain: 0.11, lfoRate: 0.07,  lfoDepth: 0.04, pan:  0   },
+      { freq: 200, type: 'triangle', gain: 0.07, lfoRate: 0.05,  lfoDepth: 0.03, pan: -0.3 },
+      { freq: 150, type: 'sine',     gain: 0.05, lfoRate: 0.09,  lfoDepth: 0.03, pan:  0.4 },
+    ],
+    filterLFO: { base: 900, depth: 500, rate: 0.05 },
+    noise: { color: 'white', gain: 0.035, cutoff: 1600, lfoRate: 0.04, lfoDepth: 500 },
+    reverb: { decay: 4, wet: 0.3 },
+    shimmer: null,
+  },
+  5: { // Reflective Focus: 10 Hz stable, restrained
+    binauralBase: 210, binauralStart: 10, binauralEnd: 10,
+    binauralGain: 0.055,
+    drones: [
+      { freq: 110, type: 'sine',     gain: 0.10, lfoRate: 0.06,  lfoDepth: 0.03, pan:  0   },
+      { freq: 220, type: 'triangle', gain: 0.06, lfoRate: 0.04,  lfoDepth: 0.02, pan: -0.2 },
+      { freq: 165, type: 'sine',     gain: 0.04, lfoRate: 0.07,  lfoDepth: 0.02, pan:  0.2 },
+    ],
+    filterLFO: { base: 1000, depth: 200, rate: 0.05 },
+    noise: { color: 'pink', gain: 0.030, cutoff: 1000, lfoRate: 0.04, lfoDepth: 200 },
+    reverb: { decay: 3, wet: 0.25 },
+    shimmer: null,
+  },
+  6: { // Dream Descent: 5→4 Hz, ultra-deep
+    binauralBase: 150, binauralStart: 5, binauralEnd: 4,
+    binauralGain: 0.075,
+    drones: [
+      { freq: 40,  type: 'sine',     gain: 0.22, lfoRate: 0.04,  lfoDepth: 0.07, pan:  0   },
+      { freq: 60,  type: 'sine',     gain: 0.14, lfoRate: 0.03,  lfoDepth: 0.06, pan: -0.4 },
+      { freq: 80,  type: 'triangle', gain: 0.08, lfoRate: 0.05,  lfoDepth: 0.04, pan:  0.4 },
+      { freq: 120, type: 'sine',     gain: 0.04, lfoRate: 0.04,  lfoDepth: 0.03, pan:  0.2 },
+    ],
+    filterLFO: { base: 300, depth: 180, rate: 0.04 },
+    noise: { color: 'brown', gain: 0.06, cutoff: 500, lfoRate: 0.03, lfoDepth: 150 },
+    reverb: { decay: 10, wet: 0.55 },
+    shimmer: null,
+  },
+};
+
+// ── Noise buffer (stereo, longer loop = less audible repetition) ──
+function createNoiseBuffer(ctx, color) {
+  const secs = 12; // 12s buffer — long enough loop is imperceptible
+  const bufSize = ctx.sampleRate * secs;
+  const buf = ctx.createBuffer(2, bufSize, ctx.sampleRate);
+
+  for (let ch = 0; ch < 2; ch++) {
+    const d = buf.getChannelData(ch);
+    if (color === 'white') {
+      for (let i = 0; i < bufSize; i++) d[i] = Math.random() * 2 - 1;
+    } else if (color === 'pink') {
+      let b0=0,b1=0,b2=0,b3=0,b4=0,b5=0,b6=0;
+      for (let i = 0; i < bufSize; i++) {
+        const w = Math.random() * 2 - 1;
+        b0=0.99886*b0+w*0.0555179; b1=0.99332*b1+w*0.0750759;
+        b2=0.96900*b2+w*0.1538520; b3=0.86650*b3+w*0.3104856;
+        b4=0.55000*b4+w*0.5329522; b5=-0.7616*b5-w*0.0168980;
+        d[i]=(b0+b1+b2+b3+b4+b5+b6+w*0.5362)*(1/6.5);
+        b6=w*0.115926;
+      }
+    } else { // brown
+      let last = 0;
+      for (let i = 0; i < bufSize; i++) {
+        const w = Math.random() * 2 - 1;
+        d[i] = (last + (0.02 * w)) / 1.02;
+        last = d[i];
+        d[i] *= 3.5;
+      }
+    }
+  }
+  return buf;
+}
+
+// ── Synthetic reverb via feedback delay network ──
+function createReverb(ctx, decay, wet) {
+  const convolver = ctx.createConvolver();
+  const rate = ctx.sampleRate;
+  const length = rate * decay;
+  const impulse = ctx.createBuffer(2, length, rate);
+  for (let ch = 0; ch < 2; ch++) {
+    const d = impulse.getChannelData(ch);
+    for (let i = 0; i < length; i++) {
+      d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / length, 2.5);
+    }
+  }
+  convolver.buffer = impulse;
+
+  const wetGain = ctx.createGain();
+  wetGain.gain.value = wet;
+  const dryGain = ctx.createGain();
+  dryGain.gain.value = 1 - wet * 0.5;
+
+  // Return a simple wrapper
+  return { convolver, wetGain, dryGain };
+}
+
+// ── Main audio start ──
+function startAudio(programIndex, durationSeconds) {
+  stopAudio();
+  const ctx = getAudioContext();
+  const cfg = programAudioConfig[programIndex];
+  const dur = durationSeconds || 2700;
+  const vol = parseFloat(document.getElementById('volSlider').value);
+  const now = ctx.currentTime;
+
+  const nodes = { master: null, sources: [], lfos: [] };
+
+  // Master gain with slow fade-in
+  const master = ctx.createGain();
+  master.gain.setValueAtTime(0.0001, now);
+  master.gain.exponentialRampToValueAtTime(vol, now + 4);
+  master.connect(ctx.destination);
+  nodes.master = master;
+
+  // Reverb bus
+  const rev = createReverb(ctx, cfg.reverb.decay, cfg.reverb.wet);
+  rev.convolver.connect(rev.wetGain);
+  rev.wetGain.connect(master);
+  // Dry bus goes direct to master
+
+  // ── Binaural beats ──
+  const merger = ctx.createChannelMerger(2);
+  merger.connect(master);
+
+  const leftOsc = ctx.createOscillator();
+  leftOsc.type = 'sine';
+  leftOsc.frequency.value = cfg.binauralBase;
+  const leftG = ctx.createGain();
+  leftG.gain.value = cfg.binauralGain;
+  leftOsc.connect(leftG);
+  leftG.connect(merger, 0, 0);
+
+  const rightOsc = ctx.createOscillator();
+  rightOsc.type = 'sine';
+  rightOsc.frequency.setValueAtTime(cfg.binauralBase + cfg.binauralStart, now);
+  rightOsc.frequency.linearRampToValueAtTime(cfg.binauralBase + cfg.binauralEnd, now + dur);
+  const rightG = ctx.createGain();
+  rightG.gain.value = cfg.binauralGain;
+  rightOsc.connect(rightG);
+  rightG.connect(merger, 0, 1);
+
+  leftOsc.start(now); rightOsc.start(now);
+  nodes.sources.push(leftOsc, rightOsc);
+
+  // ── Ambient drones ──
+  cfg.drones.forEach((d, i) => {
+    const osc = ctx.createOscillator();
+    osc.type = d.type;
+    osc.frequency.value = d.freq;
+
+    // Amplitude LFO (breath)
+    const ampLFO = ctx.createOscillator();
+    ampLFO.type = 'sine';
+    ampLFO.frequency.value = d.lfoRate;
+    const ampLFOGain = ctx.createGain();
+    ampLFOGain.gain.value = d.gain * d.lfoDepth;
+    ampLFO.connect(ampLFOGain);
+
+    const droneGain = ctx.createGain();
+    droneGain.gain.value = d.gain;
+    ampLFOGain.connect(droneGain.gain);
+
+    // Lowpass filter with slow LFO sweep
+    const lpf = ctx.createBiquadFilter();
+    lpf.type = 'lowpass';
+    lpf.frequency.value = cfg.filterLFO.base;
+    lpf.Q.value = 1.2;
+
+    const filterLFO = ctx.createOscillator();
+    filterLFO.type = 'sine';
+    filterLFO.frequency.value = cfg.filterLFO.rate + i * 0.012;
+    const filterLFOGain = ctx.createGain();
+    filterLFOGain.gain.value = cfg.filterLFO.depth;
+    filterLFO.connect(filterLFOGain);
+    filterLFOGain.connect(lpf.frequency);
+
+    // Stereo pan
+    const panner = ctx.createStereoPanner();
+    panner.pan.value = d.pan;
+
+    osc.connect(lpf);
+    lpf.connect(droneGain);
+    droneGain.connect(panner);
+    panner.connect(rev.dryGain); // dry path
+    panner.connect(rev.convolver); // wet path
+
+    osc.start(now);
+    ampLFO.start(now);
+    filterLFO.start(now);
+    nodes.sources.push(osc);
+    nodes.lfos.push(ampLFO, filterLFO);
+  });
+
+  // Dry gain to master
+  rev.dryGain.connect(master);
+
+  // ── Filtered noise ──
+  const noiseBuf = createNoiseBuffer(ctx, cfg.noise.color);
+  const noiseSource = ctx.createBufferSource();
+  noiseSource.buffer = noiseBuf;
+  noiseSource.loop = true;
+
+  // Noise filter with LFO sweep
+  const noiseFilter = ctx.createBiquadFilter();
+  noiseFilter.type = 'lowpass';
+  noiseFilter.frequency.value = cfg.noise.cutoff;
+  noiseFilter.Q.value = 0.7;
+
+  const noiseLFO = ctx.createOscillator();
+  noiseLFO.type = 'sine';
+  noiseLFO.frequency.value = cfg.noise.lfoRate;
+  const noiseLFOGain = ctx.createGain();
+  noiseLFOGain.gain.value = cfg.noise.lfoDepth;
+  noiseLFO.connect(noiseLFOGain);
+  noiseLFOGain.connect(noiseFilter.frequency);
+
+  const noiseGain = ctx.createGain();
+  noiseGain.gain.value = cfg.noise.gain;
+
+  noiseSource.connect(noiseFilter);
+  noiseFilter.connect(noiseGain);
+  noiseGain.connect(rev.convolver);
+  noiseGain.connect(master);
+
+  noiseSource.start(now);
+  noiseLFO.start(now);
+  nodes.sources.push(noiseSource);
+  nodes.lfos.push(noiseLFO);
+
+  // ── Optional shimmer layer (Lucid Preparation) ──
+  if (cfg.shimmer) {
+    const shimOsc = ctx.createOscillator();
+    shimOsc.type = 'sine';
+    shimOsc.frequency.value = cfg.shimmer.freq;
+    const shimFilter = ctx.createBiquadFilter();
+    shimFilter.type = 'bandpass';
+    shimFilter.frequency.value = 800;
+    shimFilter.Q.value = 2;
+    const shimGain = ctx.createGain();
+    shimGain.gain.value = cfg.shimmer.gain;
+    // Slow AM on shimmer
+    const shimLFO = ctx.createOscillator();
+    shimLFO.type = 'sine';
+    shimLFO.frequency.value = 0.15;
+    const shimLFOG = ctx.createGain();
+    shimLFOG.gain.value = cfg.shimmer.gain * 0.5;
+    shimLFO.connect(shimLFOG);
+    shimLFOG.connect(shimGain.gain);
+    shimOsc.connect(shimFilter);
+    shimFilter.connect(shimGain);
+    shimGain.connect(master);
+    shimOsc.start(now);
+    shimLFO.start(now);
+    nodes.sources.push(shimOsc);
+    nodes.lfos.push(shimLFO);
+  }
+
+  sessionNodes = nodes;
+}
+
+function stopAudio() {
+  if (!sessionNodes || !sessionNodes.master) return;
+  try {
+    const now = audioCtx ? audioCtx.currentTime : 0;
+    // Fade out fast
+    if (audioCtx) {
+      sessionNodes.master.gain.cancelScheduledValues(now);
+      sessionNodes.master.gain.setValueAtTime(sessionNodes.master.gain.value, now);
+      sessionNodes.master.gain.linearRampToValueAtTime(0.0001, now + 0.3);
+    }
+    // Stop all sources immediately after short fade
+    const allNodes = [
+      ...(sessionNodes.sources || []),
+      ...(sessionNodes.lfos || [])
+    ];
+    const stopAt = audioCtx ? audioCtx.currentTime + 0.35 : 0;
+    allNodes.forEach(function(n) {
+      try { n.stop(stopAt); } catch(e) {}
+    });
+    // Disconnect master after fade
+    setTimeout(function() {
+      try { sessionNodes.master.disconnect(); } catch(e) {}
+    }, 400);
+  } catch(e) {}
+  sessionNodes = {};
+}
+
+function setVolume(val) {
+  if (sessionNodes.master && audioCtx) {
+    const now = audioCtx.currentTime;
+    sessionNodes.master.gain.cancelScheduledValues(now);
+    sessionNodes.master.gain.setValueAtTime(sessionNodes.master.gain.value, now);
+    sessionNodes.master.gain.linearRampToValueAtTime(parseFloat(val), now + 0.3);
+  }
+}
+
+// ============================================================
+// SESSION MANAGEMENT
+// ============================================================
+function parseDuration(dur, programIndex) {
+  const t = T[lang];
+  if (typeof dur === 'number') return dur * 60;
+  // Special modes
+  if (dur.includes('∞') || dur === t.durationInfinite || dur === '∞ Loop' || dur === '∞ Zanka') return null; // infinite
+  if (dur.includes('Sleep') || dur === t.durationSleep || dur === 'Sleep mode' || dur === 'Način spanja') return 28800; // 8h
+  if (dur.includes('Wake') || dur === t.durationWake || dur === 'Wake mode' || dur === 'Način prebujanja') return 900; // 15min
+  if (dur.includes('Focus') || dur === t.durationFocus || dur === 'Focus mode' || dur === 'Način fokusa') return 1500; // 25min
+  return 1800;
+}
+
+function formatTime(sec) {
+  if (sec === null || sec === undefined) return '∞';
+  const h = Math.floor(sec / 3600);
+  const m = Math.floor((sec % 3600) / 60);
+  const s = Math.floor(sec % 60);
+  if (h > 0) return `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  return `${m}:${String(s).padStart(2,'0')}`;
+}
+
+function startSession() {
+  if (activeProgram === null) return;
+  const prog = T[lang].programs[activeProgram];
+  sessionDuration = selectedDuration;
+  sessionStartTime = Date.now();
+  isPlaying = true;
+
+  // Always resume context — handles browser autoplay policy
+  const ctx = getAudioContext();
+  ctx.resume().then(function() {
+    startAudio(activeProgram, sessionDuration);
+  });
+
+  updatePlayBtn();
+  updateProgress();
+
+  clearInterval(progressInterval);
+  progressInterval = setInterval(function() {
+    if (!isPlaying) return;
+    updateProgress();
+    if (sessionDuration !== null) {
+      const elapsed = (Date.now() - sessionStartTime) / 1000;
+      if (elapsed >= sessionDuration) endSession();
+    }
+  }, 500);
+
+  document.getElementById('waveform').classList.add('playing');
+  showBreathGuide(prog.breath);
+  showToast(T[lang].toastStarted);
+}
+
+function endSession() {
+  isPlaying = false;
+  clearInterval(progressInterval);
+  stopAudio();
+  updatePlayBtn();
+  document.getElementById('waveform').classList.remove('playing');
+  document.getElementById('progressFill').style.width = '100%';
+  showBreathGuide(false);
+}
+
+function togglePlay() {
+  if (!isPlaying) {
+    if (activeProgram === null) return;
+    if (sessionStartTime) {
+      // Resume
+      const ctx = getAudioContext();
+      if (ctx.state === 'suspended') ctx.resume();
+      isPlaying = true;
+      startAudio(activeProgram, sessionDuration);
+      document.getElementById('waveform').classList.add('playing');
+      clearInterval(progressInterval);
+      progressInterval = setInterval(() => {
+        if (!isPlaying) return;
+        updateProgress();
+        if (sessionDuration !== null) {
+          const elapsed = (Date.now() - sessionStartTime) / 1000;
+          if (elapsed >= sessionDuration) endSession();
+        }
+      }, 500);
+    } else {
+      startSession();
+    }
+  } else {
+    isPlaying = false;
+    document.getElementById('waveform').classList.remove('playing');
+    if (audioCtx) audioCtx.suspend();
+    clearInterval(progressInterval);
+  }
+  updatePlayBtn();
+}
+
+function stopSession() {
+  if (activeProgram === null) return;
+  sessionStartTime = null;
+  endSession();
+  document.getElementById('progressFill').style.width = '0%';
+  document.getElementById('timeElapsed').textContent = '0:00';
+  document.getElementById('timeTotal').textContent = sessionDuration ? formatTime(sessionDuration) : '∞';
+  showToast(T[lang].toastStopped);
+}
+
+function skipBack() {
+  sessionStartTime = Date.now();
+  if (isPlaying) {
+    stopAudio();
+    startAudio(activeProgram, sessionDuration);
+  }
+  document.getElementById('progressFill').style.width = '0%';
+  showToast(T[lang].toastRestarted);
+}
+
+function seekProgress(e) {
+  if (!sessionDuration) return;
+  const rect = e.currentTarget.getBoundingClientRect();
+  const ratio = (e.clientX - rect.left) / rect.width;
+  const seekTo = sessionDuration * ratio;
+  sessionStartTime = Date.now() - seekTo * 1000;
+  updateProgress();
+}
+
+function updateProgress() {
+  if (!sessionStartTime) return;
+  const elapsed = (Date.now() - sessionStartTime) / 1000;
+  document.getElementById('timeElapsed').textContent = formatTime(Math.min(elapsed, sessionDuration || Infinity));
+  if (sessionDuration) {
+    const pct = Math.min((elapsed / sessionDuration) * 100, 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('timeTotal').textContent = formatTime(sessionDuration);
+  } else {
+    document.getElementById('progressFill').style.width = '0%';
+    document.getElementById('timeTotal').textContent = '∞';
+  }
+  updateMiniPlayer();
+}
+
+function updatePlayBtn() {
+  const icon = document.getElementById('playIcon');
+  if (isPlaying) {
+    icon.innerHTML = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+  } else {
+    icon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"/>';
+  }
+  updateMiniPlayer();
+}
+
+function showBreathGuide(visible) {
+  const bg = document.getElementById('breathGuide');
+  bg.classList.toggle('visible', !!visible);
+}
+
+// ============================================================
+// PROGRAM SELECTION
+// ============================================================
+function selectProgram(index, card) {
+  // Update active state
+  document.querySelectorAll('.program-card').forEach(c => c.classList.remove('active'));
+  card.classList.add('active');
+
+  const wasActive = activeProgram === index;
+  activeProgram = index;
+
+  // Stop current session
+  if (isPlaying) { endSession(); sessionStartTime = null; }
+
+  // Default duration: first option
+  const prog = T[lang].programs[index];
+  const firstDur = prog.durations[0];
+  selectedDuration = firstDur * 60;
+
+  // Update pill selections
+  card.querySelectorAll('.dur-pill').forEach((p, i) => {
+    p.classList.toggle('active', i === 0);
+  });
+
+  // Update now playing UI
+  const np = document.getElementById('nowPlaying');
+  np.classList.remove('hidden');
+  document.getElementById('npTitle').textContent = prog.name;
+  document.getElementById('npDurationLabel').textContent = firstDur + ' ' + T[lang].min;
+  document.getElementById('timeElapsed').textContent = '0:00';
+  document.getElementById('timeTotal').textContent = formatTime(selectedDuration);
+  document.getElementById('progressFill').style.width = '0%';
+  sessionStartTime = null;
+
+  // Toggle expansion
+  if (expandedProgram !== null && expandedProgram !== index) {
+    const prevDetail = document.getElementById('detail-' + expandedProgram);
+    if (prevDetail) { prevDetail.classList.remove('open'); }
+  }
+  const detail = document.getElementById('detail-' + index);
+  if (detail) {
+    detail.classList.toggle('open');
+    expandedProgram = detail.classList.contains('open') ? index : null;
+  }
+
+  // Update play hints
+  document.querySelectorAll('.pc-play-hint').forEach((el, i) => {
+    el.textContent = i === index ? T[lang].playHintActive : T[lang].playHintIdle;
+  });
+
+  // Auto-start — kratka zakasnitev da stari node-i prejmejo stop()
+  setTimeout(function() { startSession(); }, 450);
+}
+
+function selectDuration(programIndex, value, isSpecial, btn) {
+  // Stop session
+  if (isPlaying) { endSession(); sessionStartTime = null; }
+  selectedDuration = parseDuration(isSpecial ? value : parseInt(value), programIndex);
+
+  // Update pill UI
+  const card = document.querySelector('.program-card[data-index="' + programIndex + '"]');
+  card.querySelectorAll('.dur-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+
+  // Update np label
+  const prog = T[lang].programs[programIndex];
+  document.getElementById('npDurationLabel').textContent = isSpecial ? value : value + ' ' + T[lang].min;
+  document.getElementById('timeElapsed').textContent = '0:00';
+  document.getElementById('timeTotal').textContent = selectedDuration ? formatTime(selectedDuration) : '∞';
+  document.getElementById('progressFill').style.width = '0%';
+  sessionStartTime = null;
+
+  setTimeout(function() { startSession(); }, 50);
+}
+
+// ============================================================
+// RENDER
+// ============================================================
+function renderPrograms() {
+  const container = document.getElementById('programsContainer');
+  const progs = T[lang].programs;
+  container.innerHTML = '';
+
+  progs.forEach((prog, i) => {
+    const isActive = activeProgram === i;
+    const card = document.createElement('div');
+    card.className = 'program-card' + (isActive ? ' active' : '');
+    card.dataset.index = i;
+
+    // Duration pills
+    let pillsHTML = '';
+    prog.durations.forEach((d, di) => {
+      const isFirst = di === 0 && isActive;
+      pillsHTML += `<button class="dur-pill${isFirst ? ' active' : ''}" onclick="event.stopPropagation(); selectDuration(${i}, '${d}', false, this)">${d} ${T[lang].min}</button>`;
+    });
+    if (prog.specialDurations) {
+      prog.specialDurations.forEach(sd => {
+        pillsHTML += `<button class="dur-pill" onclick="event.stopPropagation(); selectDuration(${i}, '${sd}', true, this)">${sd}</button>`;
+      });
+    }
+
+    // Tone tags
+    let toneHTML = prog.tone.map(t => `<span class="tone-tag">${t}</span>`).join('');
+
+    card.innerHTML = `
+      <div class="pc-top">
+        <div class="pc-left">
+          <div class="pc-number">${prog.number}</div>
+          <div class="pc-name">${prog.name}</div>
+        </div>
+        <div class="pc-icon">${prog.icon}</div>
+      </div>
+      <div class="pc-desc">${prog.desc}</div>
+      <div class="pc-bottom">
+        <div class="pc-durations">${pillsHTML}</div>
+        <div class="pc-play-hint">${isActive ? T[lang].playHintActive : T[lang].playHintIdle}</div>
+      </div>
+      <div class="program-detail${isActive && expandedProgram === i ? ' open' : ''}" id="detail-${i}">
+        <div class="program-detail-inner">
+          <div class="pd-col">
+            <div class="pd-label">${T[lang].detailPurpose}</div>
+            <div class="pd-value">${prog.purpose}</div>
+          </div>
+          <div class="pd-col">
+            <div class="pd-label">${T[lang].detailTextures}</div>
+            <div class="pd-value">${prog.textures}</div>
+          </div>
+          <div class="pd-col" style="grid-column: 1 / -1;">
+            <div class="pd-label">${T[lang].detailTone}</div>
+            <div class="pd-tone">${toneHTML}</div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    card.addEventListener('click', () => selectProgram(i, card));
+    container.appendChild(card);
+  });
+}
+
+// ============================================================
+// TRANSLATE
+// ============================================================
+function applyTranslations() {
+  const t = T[lang];
+  document.querySelectorAll('[data-t]').forEach(el => {
+    const key = el.dataset.t;
+    if (t[key] !== undefined && typeof t[key] === 'string') el.textContent = t[key];
+  });
+  document.querySelectorAll('[data-t-html]').forEach(el => {
+    const key = el.dataset.tHtml;
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+  // Update button labels
+  document.getElementById('langToggle').textContent = t.langToggle;
+  document.getElementById('themeToggle').textContent = theme === 'dark' ? t.themeLight : t.themeDark;
+  // Headphone button tooltip
+  const hpBtn = document.getElementById('hpCheckHeaderBtn');
+  if (hpBtn) hpBtn.title = t.hpCheckBtn;
+  // Render tips if overlay open
+  renderHpTips();
+  // Update now playing if active
+  if (activeProgram !== null) {
+    const prog = t.programs[activeProgram];
+    document.getElementById('npTitle').textContent = prog.name;
+    document.getElementById('mpTitle').textContent = prog.name;
+  }
+}
+
+// ============================================================
+// THEME & LANG TOGGLE
+// ============================================================
+function toggleTheme() {
+  theme = theme === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = theme;
+  localStorage.setItem('limina-theme', theme);
+  applyTranslations();
+}
+
+function toggleLang() {
+  lang = lang === 'en' ? 'sl' : 'en';
+  document.documentElement.lang = lang;
+  localStorage.setItem('limina-lang', lang);
+  renderPrograms();
+  applyTranslations();
+}
+
+// ============================================================
+// MINI PLAYER — sticky scroll behaviour
+// ============================================================
+function updateMiniPlayer() {
+  const mp = document.getElementById('miniPlayer');
+  const np = document.getElementById('nowPlaying');
+  if (!mp || !np) return;
+
+  const npRect = np.getBoundingClientRect();
+  const isNpVisible = npRect.bottom > 60; // still visible near top
+
+  if (activeProgram !== null && !isNpVisible) {
+    mp.classList.add('visible');
+  } else {
+    mp.classList.remove('visible');
+  }
+
+  // Sync title
+  if (activeProgram !== null) {
+    document.getElementById('mpTitle').textContent = T[lang].programs[activeProgram].name;
+  }
+
+  // Sync waveform animation
+  const mpWave = document.getElementById('mpWaveform');
+  mpWave.classList.toggle('playing', isPlaying);
+
+  // Sync play icon
+  const mpIcon = document.getElementById('mpPlayIcon');
+  if (mpIcon) {
+    if (isPlaying) {
+      mpIcon.innerHTML = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+    } else {
+      mpIcon.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"/>';
+    }
+  }
+
+  // Sync progress
+  if (sessionStartTime && sessionDuration) {
+    const elapsed = (Date.now() - sessionStartTime) / 1000;
+    const pct = Math.min((elapsed / sessionDuration) * 100, 100);
+    document.getElementById('mpFill').style.width = pct + '%';
+    document.getElementById('mpTime').textContent = formatTime(Math.min(elapsed, sessionDuration));
+  } else if (!sessionDuration && sessionStartTime) {
+    document.getElementById('mpFill').style.width = '0%';
+    document.getElementById('mpTime').textContent = '∞';
+  }
+}
+
+function scrollToPlayer() {
+  const np = document.getElementById('nowPlaying');
+  if (np) np.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function seekMiniProgress(e) {
+  if (!sessionDuration) return;
+  const rect = e.currentTarget.getBoundingClientRect();
+  const ratio = (e.clientX - rect.left) / rect.width;
+  const seekTo = sessionDuration * ratio;
+  sessionStartTime = Date.now() - seekTo * 1000;
+  updateProgress();
+  updateMiniPlayer();
+}
+
+// Scroll listener
+window.addEventListener('scroll', updateMiniPlayer, { passive: true });
+
+// ============================================================
+// MINI PLAYER — hook into existing updatePlayBtn
+// ============================================================
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// ============================================================
+// HEADPHONE CHECK
+// ============================================================
+let hpTestNodes = {};
+let hpTestTimeout = null;
+
+function initHpBanner() {
+  const seen = localStorage.getItem('limina-hp-seen');
+  if (!seen) {
+    document.getElementById('hpBanner').classList.remove('hidden');
+    // Subtly highlight header button
+    document.getElementById('hpCheckHeaderBtn').classList.add('highlight');
+  }
+}
+
+function dismissBanner(fromTest) {
+  document.getElementById('hpBanner').classList.add('hidden');
+  localStorage.setItem('limina-hp-seen', '1');
+  document.getElementById('hpCheckHeaderBtn').classList.remove('highlight');
+}
+
+function openHpTest(fromBanner) {
+  if (fromBanner) dismissBanner(true);
+  // Reset to step 1
+  showHpStep('hpStep1');
+  document.getElementById('hpOverlay').classList.add('visible');
+  applyTranslations();
+  // Render tips
+  renderHpTips();
+}
+
+function closeHpTest() {
+  document.getElementById('hpOverlay').classList.remove('visible');
+  stopHpAudio();
+  clearTimeout(hpTestTimeout);
+}
+
+function showHpStep(id) {
+  ['hpStep1','hpStep2','hpStep3','hpStep4ok','hpStep4fail'].forEach(s => {
+    document.getElementById(s).classList.remove('active');
+  });
+  document.getElementById(id).classList.add('active');
+}
+
+function renderHpTips() {
+  const tips = T[lang].hpTips;
+  const list = document.getElementById('hpTipsList');
+  list.innerHTML = tips.map(t => `<div class="hp-tip">${t}</div>`).join('');
+}
+
+function startHpTest() {
+  showHpStep('hpStep2');
+  stopHpAudio();
+  runStereoTest();
+}
+
+function runStereoTest() {
+  const ctx = getAudioContext();
+  if (ctx.state === 'suspended') ctx.resume();
+
+  const label = document.getElementById('hpStereoLabel');
+  const dot = document.getElementById('hpDot');
+  const t = T[lang];
+
+  // Create stereo panner + oscillator
+  function playTone(pan, onDone) {
+    const osc = ctx.createOscillator();
+    osc.type = 'sine';
+    osc.frequency.value = 220;
+    const g = ctx.createGain();
+    g.gain.setValueAtTime(0, ctx.currentTime);
+    g.gain.linearRampToValueAtTime(0.15, ctx.currentTime + 0.3);
+    g.gain.linearRampToValueAtTime(0, ctx.currentTime + 1.8);
+    const panner = ctx.createStereoPanner ? ctx.createStereoPanner() : ctx.createPanner();
+    if (panner.pan) panner.pan.value = pan;
+    osc.connect(g); g.connect(panner); panner.connect(ctx.destination);
+    osc.start();
+    osc.stop(ctx.currentTime + 2);
+    hpTestNodes.osc = osc;
+    hpTestNodes.g = g;
+    setTimeout(onDone, 2200);
+  }
+
+  // LEFT
+  label.textContent = t.hpStep2Left;
+  dot.style.left = '8%';
+  playTone(-1, () => {
+    // RIGHT
+    label.textContent = t.hpStep2Right;
+    dot.style.left = '82%';
+    playTone(1, () => {
+      // BOTH
+      label.textContent = t.hpStep2Both;
+      dot.style.left = '46%';
+      // Play both channels together
+      const oscL = ctx.createOscillator();
+      const oscR = ctx.createOscillator();
+      oscL.type = oscR.type = 'sine';
+      oscL.frequency.value = 220;
+      oscR.frequency.value = 220;
+      const gL = ctx.createGain(); gL.gain.value = 0.1;
+      const gR = ctx.createGain(); gR.gain.value = 0.1;
+      const panL = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
+      const panR = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
+      if (panL) { panL.pan.value = -1; panR.pan.value = 1; }
+      oscL.connect(gL); gL.connect(panL || ctx.destination); if (panL) panL.connect(ctx.destination);
+      oscR.connect(gR); gR.connect(panR || ctx.destination); if (panR) panR.connect(ctx.destination);
+      oscL.start(); oscR.start();
+      oscL.stop(ctx.currentTime + 2); oscR.stop(ctx.currentTime + 2);
+      hpTestTimeout = setTimeout(() => {
+        showHpStep('hpStep3');
+      }, 2400);
+    });
+  });
+}
+
+function stopHpAudio() {
+  try { if (hpTestNodes.osc) hpTestNodes.osc.stop(); } catch(e){}
+  hpTestNodes = {};
+}
+
+function hpResult(ok) {
+  if (ok) {
+    localStorage.setItem('limina-hp-seen', '1');
+    showHpStep('hpStep4ok');
+  } else {
+    renderHpTips();
+    showHpStep('hpStep4fail');
+  }
+}
+
+// ============================================================
+// INIT
+// ============================================================
+function init() {
+  document.documentElement.dataset.theme = theme;
+  document.documentElement.lang = lang;
+  renderPrograms();
+  applyTranslations();
+  initHpBanner();
+}
+
+init();
+</script>
+</body>
+</html>

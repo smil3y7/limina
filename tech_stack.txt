@@ -1,0 +1,25 @@
+---
+
+**Tech stack**
+
+Čisti vanilla — brez frameworkov, brez bundlerjev, brez odvisnosti razen Google Fonts. Vse teče v brskalniku.
+
+- **HTML5** — single file, vse vgrajeno
+- **CSS3** — custom properties (design tokens), `backdrop-filter`, `position: sticky/fixed`, CSS animations, `@keyframes`, media queries
+- **Vanilla JavaScript** — ES6+, brez knjižnic
+- **Web Audio API** — `AudioContext`, `OscillatorNode`, `GainNode`, `BiquadFilterNode`, `StereoPannerNode`, `AudioBufferSourceNode` za vse zvočne plasti
+- **localStorage** — persistenca teme, jezika, HP check statusa
+- **Google Fonts** — Cormorant Garamond (serif, display), DM Sans (sans-serif, UI)
+
+---
+
+**Color scheme**
+
+| Token | Dark | Light | Vloga |
+|---|---|---|---|
+| `--bg` | `#0c0d0f` | `#f5f3ef` | Ozadje |
+| `--bg3` | `#181b22` | `#e4e0d8` | Kartice, player |
+| `--accent` | `#b4a5d2` | `#6450a0` | Primarna — dusty lavender |
+| `--accent2` | `#8fa8c8` | `#3d6a9a` | Sekundarna — slate blue |
+| `--text-primary` | `#e8e4de` | `#1c1a18` | Glavno besedilo |
+| `--warm` | `#c9a87c` | `#8a6030` | Topel poudarek (rezerviran) |
