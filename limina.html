@@ -577,6 +577,7 @@ footer {
   align-items: center;
   gap: 2px;
   height: 20px;
+  transition: opacity 4s ease;
 }
 .wave-bar {
   width: 2px;
@@ -1123,16 +1124,18 @@ header { animation-delay: 0s; }
       <div class="mp-time" id="mpTime">0:00</div>
     </div>
     <div class="mp-controls">
-      <button class="mp-btn mp-play" onclick="togglePlay()">
+      <button class="mp-btn mp-play" onclick="togglePlay()" aria-label="Play or pause">
         <svg id="mpPlayIcon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       </button>
-      <button class="mp-btn" onclick="stopSession()">
+      <button class="mp-btn" onclick="stopSession()" aria-label="Stop session">
         <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
       </button>
     </div>
     <div class="mp-scroll-hint" onclick="scrollToPlayer()" data-t="miniScrollHint"></div>
   </div>
 </div>
+
+<audio id="silentAnchor" loop preload="auto" playsinline style="display:none" src="data:audio/wav;base64,UklGRqQ+AABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YYA+AACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA"></audio>
 
 <div class="app">
 
@@ -1142,14 +1145,14 @@ header { animation-delay: 0s; }
       <div class="brand-tagline"><span style="opacity:0.4;letter-spacing:0.15em">SENTRIA</span> &nbsp;·&nbsp; <span data-t="tagline"></span></div>
     </div>
     <div class="header-controls">
-      <button class="ctrl-btn-icon" id="hpCheckHeaderBtn" onclick="openHpTest()" title="">
+      <button class="ctrl-btn-icon" id="hpCheckHeaderBtn" onclick="openHpTest()" title="" aria-label="Headphone check">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
           <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
         </svg>
       </button>
-      <button class="ctrl-btn" id="langToggle" onclick="toggleLang()"></button>
-      <button class="ctrl-btn" id="themeToggle" onclick="toggleTheme()"></button>
+      <button class="ctrl-btn" id="langToggle" onclick="toggleLang()" aria-label="Switch language"></button>
+      <button class="ctrl-btn" id="themeToggle" onclick="toggleTheme()" aria-label="Switch theme"></button>
     </div>
   </header>
 
@@ -1179,6 +1182,24 @@ header { animation-delay: 0s; }
     </div>
   </div>
 
+  <!-- iOS Add to Home Screen hint -->
+  <div class="hp-banner hidden" id="iosHintBanner">
+    <div class="hp-banner-top">
+      <div class="hp-banner-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3v12"/><path d="m7 8 5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/>
+        </svg>
+      </div>
+      <div class="hp-banner-text">
+        <div class="hp-banner-title" data-t="iosHintTitle"></div>
+        <div class="hp-banner-body" data-t="iosHintBody"></div>
+      </div>
+    </div>
+    <div class="hp-banner-actions">
+      <button class="hp-btn-ghost" onclick="dismissIosHint()" data-t="iosHintDismiss"></button>
+    </div>
+  </div>
+
   <!-- Now Playing -->
   <div class="now-playing hidden" id="nowPlaying">
     <div class="np-top">
@@ -1195,15 +1216,15 @@ header { animation-delay: 0s; }
           <div class="wave-bar"></div>
           <div class="wave-bar"></div>
         </div>
-        <button class="np-btn" onclick="skipBack()" title="Restart">
+        <button class="np-btn" onclick="skipBack()" aria-label="Restart session" id="btnRestart">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.51"/>
           </svg>
         </button>
-        <button class="np-btn play-btn" id="playBtn" onclick="togglePlay()">
+        <button class="np-btn play-btn" id="playBtn" onclick="togglePlay()" aria-label="Play or pause">
           <svg id="playIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
         </button>
-        <button class="np-btn" onclick="stopSession()" title="Stop">
+        <button class="np-btn" onclick="stopSession()" aria-label="Stop session" id="btnStop">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
         </button>
       </div>
@@ -1221,7 +1242,7 @@ header { animation-delay: 0s; }
 
     <div class="np-bottom">
       <span class="vol-label" data-t="volumeLabel"></span>
-      <input class="vol-slider" type="range" min="0" max="1" step="0.01" value="0.75" id="volSlider" oninput="setVolume(this.value)">
+      <input class="vol-slider" type="range" min="0" max="1" step="0.01" value="0.75" id="volSlider" oninput="setVolume(this.value)" aria-label="Volume">
     </div>
 
     <div class="breath-guide" id="breathGuide">
@@ -1241,7 +1262,7 @@ header { animation-delay: 0s; }
   <footer>
     <div style="display:flex;flex-direction:column;gap:4px">
       <div class="footer-brand">LIMINA <span style="opacity:0.35;font-size:12px;letter-spacing:0.1em">/ SENTRIA</span></div>
-      <div style="font-size:11px;color:var(--text-tertiary);letter-spacing:0.12em">v0.3</div>
+      <div style="font-size:11px;color:var(--text-tertiary);letter-spacing:0.12em">v0.6</div>
     </div>
     <div class="footer-note" data-t="footerNote"></div>
   </footer>
@@ -1252,7 +1273,7 @@ header { animation-delay: 0s; }
 <div class="hp-overlay" id="hpOverlay">
   <div class="hp-overlay-bg" onclick="closeHpTest()"></div>
   <div class="hp-modal">
-    <button class="hp-modal-close" onclick="closeHpTest()">✕</button>
+    <button class="hp-modal-close" onclick="closeHpTest()" aria-label="Close dialog">✕</button>
     <div class="hp-modal-title" data-t="hpTestTitle"></div>
 
     <!-- Step 1: Prepare -->
@@ -1350,7 +1371,19 @@ const T = {
     hpTips: ["Make sure headphones are fully plugged in", "Check that left (L) and right (R) are on the correct ears", "Check your system volume and audio output settings"],
     hpDone: "You're ready — enjoy the session",
     hpClose: "Close",
+    iosHintTitle: "Add Limina to your home screen",
+    iosHintBody: "Tap the Share icon, then \"Add to Home Screen\" — Limina will open full-screen, like an app, and keep working offline.",
+    iosHintDismiss: "Got it",
+    ariaRestart: "Restart session",
+    ariaPlayPause: "Play or pause",
+    ariaStop: "Stop session",
+    ariaLangToggle: "Switch language",
+    ariaThemeToggle: "Switch theme",
+    ariaVolume: "Volume",
+    ariaCloseModal: "Close dialog",
     toastStopped: "Session ended",
+    toastCompleted: "Session complete — sleep well",
+    toastConfirmStop: "Tap stop again to end this session",
     toastRestarted: "Restarting from the beginning",
     detailPurpose: "Purpose",
     detailTone: "Emotional tone",
@@ -1482,7 +1515,19 @@ const T = {
     hpTips: ["Prepričaj se, da so slušalke pravilno priključene", "Preveri ali sta leva (L) in desna (R) na pravilnih ušesih", "Preveri sistemsko glasnost in nastavitve zvočnega izhoda"],
     hpDone: "Pripravljeni ste — uživajte v seji",
     hpClose: "Zapri",
+    iosHintTitle: "Dodaj Limino na domači zaslon",
+    iosHintBody: "Tapni ikono za deljenje, nato \"Dodaj na domači zaslon\" — Limina se bo odprla čez cel zaslon, kot aplikacija, in delovala tudi brez povezave.",
+    iosHintDismiss: "Razumem",
+    ariaRestart: "Ponovno zaženi sejo",
+    ariaPlayPause: "Predvajaj ali pavza",
+    ariaStop: "Ustavi sejo",
+    ariaLangToggle: "Preklopi jezik",
+    ariaThemeToggle: "Preklopi temo",
+    ariaVolume: "Glasnost",
+    ariaCloseModal: "Zapri pogovorno okno",
     toastStopped: "Seja je zaključena",
+    toastCompleted: "Seja zaključena — lepo spite",
+    toastConfirmStop: "Znova tapni stop za zaključek seje",
     toastRestarted: "Vračam na začetek",
     detailPurpose: "Namen",
     detailTone: "Čustveni ton",
@@ -1580,7 +1625,8 @@ const T = {
 // STATE
 // ============================================================
 let lang = localStorage.getItem('limina-lang') || 'en';
-let theme = localStorage.getItem('limina-theme') || 'dark';
+let theme = localStorage.getItem('limina-theme') ||
+  (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
 let activeProgram = null;
 let selectedDuration = null; // in seconds
 let isPlaying = false;
@@ -1590,6 +1636,11 @@ let sessionStartTime = null;
 let sessionDuration = null; // seconds
 let progressInterval = null;
 let expandedProgram = null;
+let pausedElapsed = 0;
+let actionToken = 0;
+let silentAnchorEl = null;
+let stopConfirmArmed = false;
+let stopConfirmTimeout = null;
 
 // ============================================================
 // AUDIO ENGINE v2
@@ -1760,11 +1811,12 @@ function createReverb(ctx, decay, wet) {
 }
 
 // ── Main audio start ──
-function startAudio(programIndex, durationSeconds) {
+function startAudio(programIndex, durationSeconds, progressRatio) {
   stopAudio();
   const ctx = getAudioContext();
   const cfg = programAudioConfig[programIndex];
   const dur = durationSeconds || 2700;
+  const ratio = progressRatio || 0;
   const vol = parseFloat(document.getElementById('volSlider').value);
   const now = ctx.currentTime;
 
@@ -1797,7 +1849,8 @@ function startAudio(programIndex, durationSeconds) {
 
   const rightOsc = ctx.createOscillator();
   rightOsc.type = 'sine';
-  rightOsc.frequency.setValueAtTime(cfg.binauralBase + cfg.binauralStart, now);
+  const interpolatedStart = cfg.binauralStart + (cfg.binauralEnd - cfg.binauralStart) * ratio;
+  rightOsc.frequency.setValueAtTime(cfg.binauralBase + interpolatedStart, now);
   rightOsc.frequency.linearRampToValueAtTime(cfg.binauralBase + cfg.binauralEnd, now + dur);
   const rightG = ctx.createGain();
   rightG.gain.value = cfg.binauralGain;
@@ -1960,8 +2013,83 @@ function setVolume(val) {
 }
 
 // ============================================================
+// BACKGROUND AUDIO — Media Session anchor
+// ============================================================
+// Web Audio API alone is frequently suspended by iOS/Android when the
+// screen locks or the app is backgrounded. Playing a real <audio> element
+// alongside it "anchors" an active media session, which keeps the OS from
+// killing the audio process — this also enables lock-screen controls.
+
+function getSilentAnchor() {
+  if (!silentAnchorEl) silentAnchorEl = document.getElementById('silentAnchor');
+  return silentAnchorEl;
+}
+
+function playSilentAnchor() {
+  const anchor = getSilentAnchor();
+  if (!anchor) return;
+  anchor.play().catch(function() { /* autoplay restrictions — safe to ignore */ });
+}
+
+function pauseSilentAnchor() {
+  const anchor = getSilentAnchor();
+  if (!anchor) return;
+  try { anchor.pause(); } catch(e) {}
+}
+
+function updateMediaSession(programIndex, playing) {
+  if (!('mediaSession' in navigator)) return;
+  if (programIndex !== null) {
+    const prog = T[lang].programs[programIndex];
+    navigator.mediaSession.metadata = new MediaMetadata({
+      title: prog.name,
+      artist: 'Limina',
+      album: 'Sentria'
+    });
+  }
+  navigator.mediaSession.playbackState = playing ? 'playing' : 'paused';
+}
+
+function setupMediaSessionHandlers() {
+  if (!('mediaSession' in navigator)) return;
+  try {
+    navigator.mediaSession.setActionHandler('play', function() {
+      if (!isPlaying) togglePlay();
+    });
+    navigator.mediaSession.setActionHandler('pause', function() {
+      if (isPlaying) togglePlay();
+    });
+    navigator.mediaSession.setActionHandler('stop', function() {
+      stopSession();
+    });
+  } catch(e) { /* some actions may be unsupported — safe to ignore */ }
+}
+
+// If the tab regains visibility and audio should be playing but the
+// AudioContext got suspended by the OS, resume it defensively.
+document.addEventListener('visibilitychange', function() {
+  if (document.visibilityState === 'visible' && isPlaying && audioCtx && audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+});
+
+// ============================================================
 // SESSION MANAGEMENT
 // ============================================================
+function resolveDurationLabel(programIndex, seconds) {
+  const prog = T[lang].programs[programIndex];
+  if (!prog) return '';
+  for (const d of prog.durations) {
+    if (d * 60 === seconds) return d + ' ' + T[lang].min;
+  }
+  if (prog.specialDurations) {
+    for (const sd of prog.specialDurations) {
+      if (parseDuration(sd, programIndex) === seconds) return sd;
+    }
+  }
+  return seconds ? formatTime(seconds) : '∞';
+}
+
 function parseDuration(dur, programIndex) {
   const t = T[lang];
   if (typeof dur === 'number') return dur * 60;
@@ -1982,18 +2110,32 @@ function formatTime(sec) {
   return `${m}:${String(s).padStart(2,'0')}`;
 }
 
+function saveLastSession() {
+  if (activeProgram === null) return;
+  try {
+    localStorage.setItem('limina-last-session', JSON.stringify({ index: activeProgram, seconds: selectedDuration }));
+  } catch(e) {}
+}
+
 function startSession() {
   if (activeProgram === null) return;
   const prog = T[lang].programs[activeProgram];
   sessionDuration = selectedDuration;
   sessionStartTime = Date.now();
+  pausedElapsed = 0;
   isPlaying = true;
+  stopConfirmArmed = false;
+  saveLastSession();
 
   // Always resume context — handles browser autoplay policy
   const ctx = getAudioContext();
   ctx.resume().then(function() {
     startAudio(activeProgram, sessionDuration);
   });
+
+  playSilentAnchor();
+  updateMediaSession(activeProgram, true);
+  setupMediaSessionHandlers();
 
   updatePlayBtn();
   updateProgress();
@@ -2004,42 +2146,53 @@ function startSession() {
     updateProgress();
     if (sessionDuration !== null) {
       const elapsed = (Date.now() - sessionStartTime) / 1000;
-      if (elapsed >= sessionDuration) endSession();
+      if (elapsed >= sessionDuration) endSession(true);
     }
   }, 500);
 
-  document.getElementById('waveform').classList.add('playing');
+  const wf = document.getElementById('waveform');
+  wf.style.opacity = '0.3';
+  wf.classList.add('playing');
+  requestAnimationFrame(function() { wf.style.opacity = '1'; });
   showBreathGuide(prog.breath);
   showToast(T[lang].toastStarted);
 }
 
-function endSession() {
+function endSession(natural) {
   isPlaying = false;
   clearInterval(progressInterval);
   stopAudio();
+  pauseSilentAnchor();
+  if ('mediaSession' in navigator) navigator.mediaSession.playbackState = 'none';
   updatePlayBtn();
   document.getElementById('waveform').classList.remove('playing');
   document.getElementById('progressFill').style.width = '100%';
   showBreathGuide(false);
+  if (natural) showToast(T[lang].toastCompleted);
 }
 
 function togglePlay() {
   if (!isPlaying) {
     if (activeProgram === null) return;
     if (sessionStartTime) {
-      // Resume
+      // Resume — preserve exact playback position, don't let wall-clock jump
       const ctx = getAudioContext();
       if (ctx.state === 'suspended') ctx.resume();
       isPlaying = true;
-      startAudio(activeProgram, sessionDuration);
+      sessionStartTime = Date.now() - pausedElapsed * 1000;
+      const ratio = sessionDuration ? Math.min(pausedElapsed / sessionDuration, 1) : 0;
+      const remaining = sessionDuration ? Math.max(sessionDuration - pausedElapsed, 1) : null;
+      startAudio(activeProgram, remaining, ratio);
+      playSilentAnchor();
+      updateMediaSession(activeProgram, true);
       document.getElementById('waveform').classList.add('playing');
       clearInterval(progressInterval);
-      progressInterval = setInterval(() => {
+      progressInterval = setInterval(function() {
         if (!isPlaying) return;
         updateProgress();
         if (sessionDuration !== null) {
           const elapsed = (Date.now() - sessionStartTime) / 1000;
-          if (elapsed >= sessionDuration) endSession();
+          if (elapsed >= sessionDuration) endSession(true);
         }
       }, 500);
     } else {
@@ -2047,8 +2200,11 @@ function togglePlay() {
     }
   } else {
     isPlaying = false;
+    pausedElapsed = sessionStartTime ? (Date.now() - sessionStartTime) / 1000 : 0;
     document.getElementById('waveform').classList.remove('playing');
     if (audioCtx) audioCtx.suspend();
+    pauseSilentAnchor();
+    updateMediaSession(activeProgram, false);
     clearInterval(progressInterval);
   }
   updatePlayBtn();
@@ -2056,6 +2212,19 @@ function togglePlay() {
 
 function stopSession() {
   if (activeProgram === null) return;
+
+  // Require a second tap to confirm stopping long or infinite sessions
+  const isLongSession = sessionDuration === null || sessionDuration >= 3600;
+  if (isLongSession && !stopConfirmArmed) {
+    stopConfirmArmed = true;
+    showToast(T[lang].toastConfirmStop);
+    clearTimeout(stopConfirmTimeout);
+    stopConfirmTimeout = setTimeout(function() { stopConfirmArmed = false; }, 4000);
+    return;
+  }
+  stopConfirmArmed = false;
+  clearTimeout(stopConfirmTimeout);
+
   sessionStartTime = null;
   endSession();
   document.getElementById('progressFill').style.width = '0%';
@@ -2066,6 +2235,7 @@ function stopSession() {
 
 function skipBack() {
   sessionStartTime = Date.now();
+  pausedElapsed = 0;
   if (isPlaying) {
     stopAudio();
     startAudio(activeProgram, sessionDuration);
@@ -2117,11 +2287,23 @@ function showBreathGuide(visible) {
 // PROGRAM SELECTION
 // ============================================================
 function selectProgram(index, card) {
+  const wasActive = activeProgram === index;
+
+  // If clicking the already-active program, just toggle the detail view —
+  // don't interrupt a running session
+  if (wasActive) {
+    const detail = document.getElementById('detail-' + index);
+    if (detail) {
+      detail.classList.toggle('open');
+      expandedProgram = detail.classList.contains('open') ? index : null;
+    }
+    return;
+  }
+
   // Update active state
   document.querySelectorAll('.program-card').forEach(c => c.classList.remove('active'));
   card.classList.add('active');
 
-  const wasActive = activeProgram === index;
   activeProgram = index;
 
   // Stop current session
@@ -2164,7 +2346,10 @@ function selectProgram(index, card) {
   });
 
   // Auto-start — kratka zakasnitev da stari node-i prejmejo stop()
-  setTimeout(function() { startSession(); }, 450);
+  const myToken = ++actionToken;
+  setTimeout(function() {
+    if (myToken === actionToken) startSession();
+  }, 450);
 }
 
 function selectDuration(programIndex, value, isSpecial, btn) {
@@ -2185,7 +2370,10 @@ function selectDuration(programIndex, value, isSpecial, btn) {
   document.getElementById('progressFill').style.width = '0%';
   sessionStartTime = null;
 
-  setTimeout(function() { startSession(); }, 50);
+  const myToken = ++actionToken;
+  setTimeout(function() {
+    if (myToken === actionToken) startSession();
+  }, 50);
 }
 
 // ============================================================
@@ -2201,16 +2389,20 @@ function renderPrograms() {
     const card = document.createElement('div');
     card.className = 'program-card' + (isActive ? ' active' : '');
     card.dataset.index = i;
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', prog.name);
 
     // Duration pills
     let pillsHTML = '';
     prog.durations.forEach((d, di) => {
-      const isFirst = di === 0 && isActive;
-      pillsHTML += `<button class="dur-pill${isFirst ? ' active' : ''}" onclick="event.stopPropagation(); selectDuration(${i}, '${d}', false, this)">${d} ${T[lang].min}</button>`;
+      const active = isActive && selectedDuration === d * 60;
+      pillsHTML += `<button class="dur-pill${active ? ' active' : ''}" onclick="event.stopPropagation(); selectDuration(${i}, '${d}', false, this)">${d} ${T[lang].min}</button>`;
     });
     if (prog.specialDurations) {
       prog.specialDurations.forEach(sd => {
-        pillsHTML += `<button class="dur-pill" onclick="event.stopPropagation(); selectDuration(${i}, '${sd}', true, this)">${sd}</button>`;
+        const active = isActive && selectedDuration === parseDuration(sd, i);
+        pillsHTML += `<button class="dur-pill${active ? ' active' : ''}" onclick="event.stopPropagation(); selectDuration(${i}, '${sd}', true, this)">${sd}</button>`;
       });
     }
 
@@ -2249,6 +2441,12 @@ function renderPrograms() {
     `;
 
     card.addEventListener('click', () => selectProgram(i, card));
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        selectProgram(i, card);
+      }
+    });
     container.appendChild(card);
   });
 }
@@ -2269,9 +2467,14 @@ function applyTranslations() {
   // Update button labels
   document.getElementById('langToggle').textContent = t.langToggle;
   document.getElementById('themeToggle').textContent = theme === 'dark' ? t.themeLight : t.themeDark;
+  document.getElementById('langToggle').setAttribute('aria-label', t.ariaLangToggle);
+  document.getElementById('themeToggle').setAttribute('aria-label', t.ariaThemeToggle);
+  document.getElementById('btnRestart').setAttribute('aria-label', t.ariaRestart);
+  document.getElementById('btnStop').setAttribute('aria-label', t.ariaStop);
+  document.getElementById('volSlider').setAttribute('aria-label', t.ariaVolume);
   // Headphone button tooltip
   const hpBtn = document.getElementById('hpCheckHeaderBtn');
-  if (hpBtn) hpBtn.title = t.hpCheckBtn;
+  if (hpBtn) { hpBtn.title = t.hpCheckBtn; hpBtn.setAttribute('aria-label', t.hpCheckBtn); }
   // Render tips if overlay open
   renderHpTips();
   // Update now playing if active
@@ -2381,6 +2584,26 @@ function showToast(msg) {
 // ============================================================
 let hpTestNodes = {};
 let hpTestTimeout = null;
+
+function isIOS() {
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+}
+
+function isStandalone() {
+  return (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) ||
+    (window.navigator.standalone === true);
+}
+
+function initIosHint() {
+  if (!isIOS() || isStandalone()) return;
+  if (localStorage.getItem('limina-ios-hint-seen')) return;
+  document.getElementById('iosHintBanner').classList.remove('hidden');
+}
+
+function dismissIosHint() {
+  document.getElementById('iosHintBanner').classList.add('hidden');
+  localStorage.setItem('limina-ios-hint-seen', '1');
+}
 
 function initHpBanner() {
   const seen = localStorage.getItem('limina-hp-seen');
@@ -2500,11 +2723,39 @@ function stopHpAudio() {
 function hpResult(ok) {
   if (ok) {
     localStorage.setItem('limina-hp-seen', '1');
+    document.getElementById('hpBanner').classList.add('hidden');
+    document.getElementById('hpCheckHeaderBtn').classList.remove('highlight');
     showHpStep('hpStep4ok');
   } else {
     renderHpTips();
     showHpStep('hpStep4fail');
   }
+}
+
+function restoreLastSession() {
+  try {
+    const raw = localStorage.getItem('limina-last-session');
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    if (typeof data.index !== 'number' || !T[lang].programs[data.index]) return;
+    activeProgram = data.index;
+    selectedDuration = (typeof data.seconds === 'number' || data.seconds === null) ? data.seconds : null;
+  } catch(e) {}
+}
+
+function applyRestoredUI() {
+  if (activeProgram === null) return;
+  const prog = T[lang].programs[activeProgram];
+  const np = document.getElementById('nowPlaying');
+  np.classList.remove('hidden');
+  document.getElementById('npTitle').textContent = prog.name;
+  document.getElementById('npDurationLabel').textContent = resolveDurationLabel(activeProgram, selectedDuration);
+  document.getElementById('timeElapsed').textContent = '0:00';
+  document.getElementById('timeTotal').textContent = selectedDuration ? formatTime(selectedDuration) : '∞';
+  document.getElementById('progressFill').style.width = '0%';
+  document.querySelectorAll('.pc-play-hint').forEach((el, i) => {
+    el.textContent = i === activeProgram ? T[lang].playHintActive : T[lang].playHintIdle;
+  });
 }
 
 // ============================================================
@@ -2513,9 +2764,12 @@ function hpResult(ok) {
 function init() {
   document.documentElement.dataset.theme = theme;
   document.documentElement.lang = lang;
+  restoreLastSession();
   renderPrograms();
   applyTranslations();
+  applyRestoredUI();
   initHpBanner();
+  initIosHint();
 }
 
 init();
