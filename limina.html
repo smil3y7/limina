@@ -1262,7 +1262,7 @@ header { animation-delay: 0s; }
   <footer>
     <div style="display:flex;flex-direction:column;gap:4px">
       <div class="footer-brand">LIMINA <span style="opacity:0.35;font-size:12px;letter-spacing:0.1em">/ SENTRIA</span></div>
-      <div style="font-size:11px;color:var(--text-tertiary);letter-spacing:0.12em">v0.7.4</div>
+      <div style="font-size:11px;color:var(--text-tertiary);letter-spacing:0.12em">v0.7.5</div>
     </div>
     <div class="footer-note" data-t="footerNote"></div>
   </footer>
@@ -2284,8 +2284,15 @@ function skipBack() {
   sessionStartTime = Date.now();
   pausedElapsed = 0;
   if (isPlaying) {
-    stopAudio();
-    startAudio(activeProgram, sessionDuration);
+    // Hard-stop the current graph immediately (no scheduled fade) before
+    // rebuilding — same fix applied to duration switching and resume.
+    if (sessionNodes && sessionNodes.master) {
+      const oldNodes = [...(sessionNodes.sources || []), ...(sessionNodes.lfos || [])];
+      oldNodes.forEach(function(n) { try { n.stop(); } catch(e) {} });
+      try { sessionNodes.master.disconnect(); } catch(e) {}
+      sessionNodes = {};
+    }
+    startAudio(activeProgram, sessionDuration, 0, 0.4);
   }
   document.getElementById('progressFill').style.width = '0%';
   showToast(T[lang].toastRestarted);

@@ -2,6 +2,11 @@
 
 All notable changes to Limina are documented here.
 
+## v0.7.5
+
+### Fixed
+- **Restart button produced no sound.** It had the same underlying issue as duration switching before v0.7.4 — stopping the old audio graph via a scheduled fade-out while immediately building a new one, plus using the slow 4-second ritual fade instead of a quick one. Restart now hard-stops the old graph immediately and uses the same quick 0.4-second fade as resume and duration switching.
+
 ## v0.7.4
 
 ### Fixed
