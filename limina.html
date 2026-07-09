@@ -1262,7 +1262,7 @@ header { animation-delay: 0s; }
   <footer>
     <div style="display:flex;flex-direction:column;gap:4px">
       <div class="footer-brand">LIMINA <span style="opacity:0.35;font-size:12px;letter-spacing:0.1em">/ SENTRIA</span></div>
-      <div style="font-size:11px;color:var(--text-tertiary);letter-spacing:0.12em">v0.7.3</div>
+      <div style="font-size:11px;color:var(--text-tertiary);letter-spacing:0.12em">v0.7.4</div>
     </div>
     <div class="footer-note" data-t="footerNote"></div>
   </footer>
@@ -1830,12 +1830,17 @@ function createReverb(ctx, programIndex, decay, wet) {
 function startAudio(programIndex, durationSeconds, progressRatio, fadeInSeconds) {
   stopAudio();
   const ctx = getAudioContext();
-  const cfg = programAudioConfig[programIndex];
-  const dur = durationSeconds || 2700;
-  const ratio = progressRatio || 0;
-  const fadeIn = (typeof fadeInSeconds === 'number') ? fadeInSeconds : 4;
-  const vol = parseFloat(document.getElementById('volSlider').value);
-  const now = ctx.currentTime;
+  if (!ctx) {
+    showToast(T[lang].toastAudioUnsupported);
+    return;
+  }
+  try {
+    const cfg = programAudioConfig[programIndex];
+    const dur = durationSeconds || 2700;
+    const ratio = progressRatio || 0;
+    const fadeIn = (typeof fadeInSeconds === 'number') ? fadeInSeconds : 4;
+    const vol = parseFloat(document.getElementById('volSlider').value);
+    const now = ctx.currentTime;
 
   const nodes = { master: null, sources: [], lfos: [] };
 
@@ -1992,6 +1997,10 @@ function startAudio(programIndex, durationSeconds, progressRatio, fadeInSeconds)
   }
 
   sessionNodes = nodes;
+  } catch (e) {
+    console.error('Limina audio error:', e);
+    showToast(T[lang].toastAudioUnsupported);
+  }
 }
 
 function stopAudio() {
@@ -2415,6 +2424,17 @@ function selectDuration(programIndex, value, isSpecial, btn) {
       showToast(T[lang].toastAudioUnsupported);
       return;
     }
+
+    // Hard-stop the current graph right away (no scheduled fade) so there's
+    // zero chance of the old and new node graphs overlapping or interfering
+    // with each other during a rapid re-trigger like this.
+    if (sessionNodes && sessionNodes.master) {
+      const oldNodes = [...(sessionNodes.sources || []), ...(sessionNodes.lfos || [])];
+      oldNodes.forEach(function(n) { try { n.stop(); } catch(e) {} });
+      try { sessionNodes.master.disconnect(); } catch(e) {}
+      sessionNodes = {};
+    }
+
     sessionDuration = selectedDuration;
     sessionStartTime = Date.now();
     pausedElapsed = 0;

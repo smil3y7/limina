@@ -2,6 +2,12 @@
 
 All notable changes to Limina are documented here.
 
+## v0.7.4
+
+### Fixed
+- **Duration switching still produced no sound after v0.7.3.** The previous fix made the call synchronous but still relied on the old audio graph's *scheduled* fade-out (stopping ~0.35s in the future) while immediately building a new graph — on a rapid re-trigger like a duration switch, this left room for the old and new node graphs to interfere with each other. Duration switching now hard-stops the old graph immediately (no scheduled fade) before building the new one, removing any possibility of overlap.
+- `startAudio()` now wraps its node-graph construction in a try/catch — if anything fails to build, it shows a toast and logs to the console instead of failing silently with no sound and no explanation.
+
 ## v0.7.3
 
 ### Fixed
