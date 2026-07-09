@@ -2,6 +2,11 @@
 
 All notable changes to Limina are documented here.
 
+## v0.7.2
+
+### Fixed
+- **Resume-from-pause and duration switching sounded silent for ~3–4 seconds.** Both paths were using the same slow 4-second "ritual" fade-in meant for genuinely new sessions. Resuming from pause and adjusting duration on an already-active program now use a quick 0.4-second fade instead — audio is heard almost immediately. The slow 4-second fade is preserved for starting a fresh session or switching to a different program, where it's an intentional part of the calm opening.
+
 ## v0.7.1
 
 ### Fixed

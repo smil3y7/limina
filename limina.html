@@ -1262,7 +1262,7 @@ header { animation-delay: 0s; }
   <footer>
     <div style="display:flex;flex-direction:column;gap:4px">
       <div class="footer-brand">LIMINA <span style="opacity:0.35;font-size:12px;letter-spacing:0.1em">/ SENTRIA</span></div>
-      <div style="font-size:11px;color:var(--text-tertiary);letter-spacing:0.12em">v0.7.1</div>
+      <div style="font-size:11px;color:var(--text-tertiary);letter-spacing:0.12em">v0.7.2</div>
     </div>
     <div class="footer-note" data-t="footerNote"></div>
   </footer>
@@ -1827,21 +1827,23 @@ function createReverb(ctx, programIndex, decay, wet) {
 }
 
 // ── Main audio start ──
-function startAudio(programIndex, durationSeconds, progressRatio) {
+function startAudio(programIndex, durationSeconds, progressRatio, fadeInSeconds) {
   stopAudio();
   const ctx = getAudioContext();
   const cfg = programAudioConfig[programIndex];
   const dur = durationSeconds || 2700;
   const ratio = progressRatio || 0;
+  const fadeIn = (typeof fadeInSeconds === 'number') ? fadeInSeconds : 4;
   const vol = parseFloat(document.getElementById('volSlider').value);
   const now = ctx.currentTime;
 
   const nodes = { master: null, sources: [], lfos: [] };
 
-  // Master gain with slow fade-in
+  // Master gain — slow fade-in for a genuinely new session, quick fade for
+  // resuming from pause or adjusting duration on an already-active program
   const master = ctx.createGain();
   master.gain.setValueAtTime(0.0001, now);
-  master.gain.exponentialRampToValueAtTime(vol, now + 4);
+  master.gain.exponentialRampToValueAtTime(vol, now + fadeIn);
   master.connect(ctx.destination);
   nodes.master = master;
 
@@ -2133,7 +2135,7 @@ function saveLastSession() {
   } catch(e) {}
 }
 
-function startSession() {
+function startSession(fadeInSeconds) {
   if (activeProgram === null) return;
 
   // Verify Web Audio API is available before committing to any state changes
@@ -2153,7 +2155,7 @@ function startSession() {
 
   // Always resume context — handles browser autoplay policy
   ctx.resume().then(function() {
-    startAudio(activeProgram, sessionDuration);
+    startAudio(activeProgram, sessionDuration, 0, fadeInSeconds);
   }).catch(function() {
     showToast(T[lang].toastAudioUnsupported);
     isPlaying = false;
@@ -2215,7 +2217,7 @@ function togglePlay() {
       sessionStartTime = Date.now() - pausedElapsed * 1000;
       const ratio = sessionDuration ? Math.min(pausedElapsed / sessionDuration, 1) : 0;
       const remaining = sessionDuration ? Math.max(sessionDuration - pausedElapsed, 1) : null;
-      startAudio(activeProgram, remaining, ratio);
+      startAudio(activeProgram, remaining, ratio, 0.4);
       playSilentAnchor();
       updateMediaSession(activeProgram, true);
       document.getElementById('waveform').classList.add('playing');
@@ -2408,7 +2410,7 @@ function selectDuration(programIndex, value, isSpecial, btn) {
 
   const myToken = ++actionToken;
   setTimeout(function() {
-    if (myToken === actionToken) startSession();
+    if (myToken === actionToken) startSession(0.4);
   }, 50);
 }
 
