@@ -1262,7 +1262,7 @@ header { animation-delay: 0s; }
   <footer>
     <div style="display:flex;flex-direction:column;gap:4px">
       <div class="footer-brand">LIMINA <span style="opacity:0.35;font-size:12px;letter-spacing:0.1em">/ SENTRIA</span></div>
-      <div style="font-size:11px;color:var(--text-tertiary);letter-spacing:0.12em">v0.6</div>
+      <div style="font-size:11px;color:var(--text-tertiary);letter-spacing:0.12em">v0.7</div>
     </div>
     <div class="footer-note" data-t="footerNote"></div>
   </footer>
@@ -1384,6 +1384,7 @@ const T = {
     toastStopped: "Session ended",
     toastCompleted: "Session complete — sleep well",
     toastConfirmStop: "Tap stop again to end this session",
+    toastAudioUnsupported: "Audio isn't supported in this browser — try a recent version of Chrome, Safari, or Firefox",
     toastRestarted: "Restarting from the beginning",
     detailPurpose: "Purpose",
     detailTone: "Emotional tone",
@@ -1528,6 +1529,7 @@ const T = {
     toastStopped: "Seja je zaključena",
     toastCompleted: "Seja zaključena — lepo spite",
     toastConfirmStop: "Znova tapni stop za zaključek seje",
+    toastAudioUnsupported: "Zvok v tem brskalniku ni podprt — poskusi novejšo verzijo Chrome, Safari ali Firefox",
     toastRestarted: "Vračam na začetek",
     detailPurpose: "Namen",
     detailTone: "Čustveni ton",
@@ -1648,10 +1650,16 @@ let stopConfirmTimeout = null;
 
 function getAudioContext() {
   if (!audioCtx) {
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    try {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    } catch (e) {
+      return null;
+    }
   }
   // Always resume — handles browser autoplay policy
-  if (audioCtx.state === 'suspended') audioCtx.resume();
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume().catch(function() { /* some browsers reject silently — safe to ignore */ });
+  }
   return audioCtx;
 }
 
@@ -1788,8 +1796,10 @@ function createNoiseBuffer(ctx, color) {
 }
 
 // ── Synthetic reverb via feedback delay network ──
-function createReverb(ctx, decay, wet) {
-  const convolver = ctx.createConvolver();
+let reverbBufferCache = {};
+
+function getReverbBuffer(ctx, programIndex, decay) {
+  if (reverbBufferCache[programIndex]) return reverbBufferCache[programIndex];
   const rate = ctx.sampleRate;
   const length = rate * decay;
   const impulse = ctx.createBuffer(2, length, rate);
@@ -1799,7 +1809,13 @@ function createReverb(ctx, decay, wet) {
       d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / length, 2.5);
     }
   }
-  convolver.buffer = impulse;
+  reverbBufferCache[programIndex] = impulse;
+  return impulse;
+}
+
+function createReverb(ctx, programIndex, decay, wet) {
+  const convolver = ctx.createConvolver();
+  convolver.buffer = getReverbBuffer(ctx, programIndex, decay);
 
   const wetGain = ctx.createGain();
   wetGain.gain.value = wet;
@@ -1830,7 +1846,7 @@ function startAudio(programIndex, durationSeconds, progressRatio) {
   nodes.master = master;
 
   // Reverb bus
-  const rev = createReverb(ctx, cfg.reverb.decay, cfg.reverb.wet);
+  const rev = createReverb(ctx, programIndex, cfg.reverb.decay, cfg.reverb.wet);
   rev.convolver.connect(rev.wetGain);
   rev.wetGain.connect(master);
   // Dry bus goes direct to master
@@ -2119,6 +2135,14 @@ function saveLastSession() {
 
 function startSession() {
   if (activeProgram === null) return;
+
+  // Verify Web Audio API is available before committing to any state changes
+  const ctx = getAudioContext();
+  if (!ctx) {
+    showToast(T[lang].toastAudioUnsupported);
+    return;
+  }
+
   const prog = T[lang].programs[activeProgram];
   sessionDuration = selectedDuration;
   sessionStartTime = Date.now();
@@ -2128,9 +2152,12 @@ function startSession() {
   saveLastSession();
 
   // Always resume context — handles browser autoplay policy
-  const ctx = getAudioContext();
   ctx.resume().then(function() {
     startAudio(activeProgram, sessionDuration);
+  }).catch(function() {
+    showToast(T[lang].toastAudioUnsupported);
+    isPlaying = false;
+    updatePlayBtn();
   });
 
   playSilentAnchor();

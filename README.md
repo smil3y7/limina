@@ -58,6 +58,9 @@ Each program uses its own internal frequency profile (binaural beat range, drone
 limina.html      → the entire app (single file)
 sw.js            → service worker for offline support
 vercel.json      → routing, cache headers, security headers
+tools/           → reference scripts used to generate embedded assets
+  generate_favicon.py     → produces the base64 SVG favicon/icon set
+  generate_silent_wav.py  → produces the base64 silent audio anchor
 ```
 
 ## Deployment
@@ -97,4 +100,4 @@ Limina is one module within **Sentria**, a broader reflective consciousness and 
 
 ---
 
-*Version 0.6 — active development*
+*Version 0.7 — active development*

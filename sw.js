@@ -1,4 +1,4 @@
-const CACHE = 'limina-v1';
+const CACHE = 'limina-v2';
 const ASSETS = [
   '/',
   '/index.html',
@@ -11,7 +11,7 @@ self.addEventListener('install', e => {
   );
 });
 
-// On activate — remove old caches
+// On activate — remove old caches (cleans up stale HTML/assets from prior versions)
 self.addEventListener('activate', e => {
   e.waitUntil(
     caches.keys().then(keys =>
@@ -20,13 +20,28 @@ self.addEventListener('activate', e => {
   );
 });
 
-// Fetch — cache first, network fallback
+// Fetch
 self.addEventListener('fetch', e => {
   // Only handle GET requests on same origin
   if (e.request.method !== 'GET') return;
   if (!e.request.url.startsWith(self.location.origin)) return;
 
-  // For Google Fonts — network first, cache fallback
+  // HTML page loads — network first. Ensures visitors always get the latest
+  // deployed version; falls back to cache only when offline.
+  if (e.request.mode === 'navigate') {
+    e.respondWith(
+      fetch(e.request)
+        .then(res => {
+          const clone = res.clone();
+          caches.open(CACHE).then(c => c.put(e.request, clone));
+          return res;
+        })
+        .catch(() => caches.match(e.request).then(cached => cached || caches.match('/')))
+    );
+    return;
+  }
+
+  // Google Fonts — network first, cache fallback
   if (e.request.url.includes('fonts.googleapis.com') || e.request.url.includes('fonts.gstatic.com')) {
     e.respondWith(
       fetch(e.request)
@@ -40,7 +55,7 @@ self.addEventListener('fetch', e => {
     return;
   }
 
-  // For everything else — cache first
+  // Everything else (static assets) — cache first
   e.respondWith(
     caches.match(e.request).then(cached => {
       if (cached) return cached;

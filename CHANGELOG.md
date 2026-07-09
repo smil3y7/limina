@@ -2,6 +2,18 @@
 
 All notable changes to Limina are documented here.
 
+## v0.7
+
+### Fixed
+- Service worker now uses network-first for HTML page loads instead of cache-first — visitors reliably get the latest deployed version instead of a stale cached one. Cache version bumped to force cleanup of previously cached (potentially stale) files.
+
+### Changed
+- Reverb impulse response is now generated once per program and cached in memory, instead of being recomputed on every session start, pause/resume, and program switch — reduces unnecessary CPU work, especially noticeable on lower-end mobile devices
+- `getAudioContext()` now fails gracefully (returns `null`) instead of throwing if Web Audio API isn't available; `startSession()` checks for this and shows a toast instead of silently breaking
+
+### Added
+- `tools/generate_favicon.py` and `tools/generate_silent_wav.py` — the scripts used to generate the embedded favicon and silent audio anchor, committed to the repo for reproducibility
+
 ## v0.6
 
 ### Added
