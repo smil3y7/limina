@@ -2,6 +2,11 @@
 
 All notable changes to Limina are documented here.
 
+## v0.7.3
+
+### Fixed
+- **Switching duration on an already-active program produced no sound**, even after the v0.7.2 fade-in fix. The previous implementation stopped the old audio, then waited 50ms and routed through a `ctx.resume().then()` promise chain to start the new audio — an indirect path that, in practice, wasn't reliably starting the new audio graph. `selectDuration()` now rebuilds the audio graph directly and synchronously, the same reliable pattern already used for pause/resume.
+
 ## v0.7.2
 
 ### Fixed

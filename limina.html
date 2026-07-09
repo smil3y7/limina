@@ -1262,7 +1262,7 @@ header { animation-delay: 0s; }
   <footer>
     <div style="display:flex;flex-direction:column;gap:4px">
       <div class="footer-brand">LIMINA <span style="opacity:0.35;font-size:12px;letter-spacing:0.1em">/ SENTRIA</span></div>
-      <div style="font-size:11px;color:var(--text-tertiary);letter-spacing:0.12em">v0.7.2</div>
+      <div style="font-size:11px;color:var(--text-tertiary);letter-spacing:0.12em">v0.7.3</div>
     </div>
     <div class="footer-note" data-t="footerNote"></div>
   </footer>
@@ -2391,8 +2391,7 @@ function selectProgram(index, card) {
 }
 
 function selectDuration(programIndex, value, isSpecial, btn) {
-  // Stop session
-  if (isPlaying) { endSession(); sessionStartTime = null; }
+  const wasPlaying = isPlaying;
   selectedDuration = parseDuration(isSpecial ? value : parseInt(value), programIndex);
 
   // Update pill UI
@@ -2406,12 +2405,38 @@ function selectDuration(programIndex, value, isSpecial, btn) {
   document.getElementById('timeElapsed').textContent = '0:00';
   document.getElementById('timeTotal').textContent = selectedDuration ? formatTime(selectedDuration) : '∞';
   document.getElementById('progressFill').style.width = '0%';
-  sessionStartTime = null;
 
-  const myToken = ++actionToken;
-  setTimeout(function() {
-    if (myToken === actionToken) startSession(0.4);
-  }, 50);
+  if (wasPlaying) {
+    // The context is already running (a session was just active) — rebuild
+    // the audio graph directly and synchronously with a quick fade, the
+    // same reliable pattern used when resuming from pause.
+    const ctx = getAudioContext();
+    if (!ctx) {
+      showToast(T[lang].toastAudioUnsupported);
+      return;
+    }
+    sessionDuration = selectedDuration;
+    sessionStartTime = Date.now();
+    pausedElapsed = 0;
+    stopConfirmArmed = false;
+    saveLastSession();
+    startAudio(programIndex, sessionDuration, 0, 0.4);
+    playSilentAnchor();
+    updateMediaSession(programIndex, true);
+    document.getElementById('waveform').classList.add('playing');
+    clearInterval(progressInterval);
+    progressInterval = setInterval(function() {
+      if (!isPlaying) return;
+      updateProgress();
+      if (sessionDuration !== null) {
+        const elapsed = (Date.now() - sessionStartTime) / 1000;
+        if (elapsed >= sessionDuration) endSession(true);
+      }
+    }, 500);
+  } else {
+    sessionStartTime = null;
+    startSession();
+  }
 }
 
 // ============================================================
