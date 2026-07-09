@@ -1262,7 +1262,7 @@ header { animation-delay: 0s; }
   <footer>
     <div style="display:flex;flex-direction:column;gap:4px">
       <div class="footer-brand">LIMINA <span style="opacity:0.35;font-size:12px;letter-spacing:0.1em">/ SENTRIA</span></div>
-      <div style="font-size:11px;color:var(--text-tertiary);letter-spacing:0.12em">v0.7</div>
+      <div style="font-size:11px;color:var(--text-tertiary);letter-spacing:0.12em">v0.7.1</div>
     </div>
     <div class="footer-note" data-t="footerNote"></div>
   </footer>
@@ -2202,9 +2202,15 @@ function togglePlay() {
   if (!isPlaying) {
     if (activeProgram === null) return;
     if (sessionStartTime) {
-      // Resume — preserve exact playback position, don't let wall-clock jump
+      // Resume — preserve exact playback position, don't let wall-clock jump.
+      // The context was never suspended on pause (see below), so we can
+      // rebuild the audio graph immediately — same reliable path used when
+      // switching between programs.
       const ctx = getAudioContext();
-      if (ctx.state === 'suspended') ctx.resume();
+      if (!ctx) {
+        showToast(T[lang].toastAudioUnsupported);
+        return;
+      }
       isPlaying = true;
       sessionStartTime = Date.now() - pausedElapsed * 1000;
       const ratio = sessionDuration ? Math.min(pausedElapsed / sessionDuration, 1) : 0;
@@ -2229,7 +2235,10 @@ function togglePlay() {
     isPlaying = false;
     pausedElapsed = sessionStartTime ? (Date.now() - sessionStartTime) / 1000 : 0;
     document.getElementById('waveform').classList.remove('playing');
-    if (audioCtx) audioCtx.suspend();
+    // Stop the audio graph (fades out) but keep the AudioContext itself
+    // running — suspending the whole context caused resumed nodes to be
+    // silent on some browsers.
+    stopAudio();
     pauseSilentAnchor();
     updateMediaSession(activeProgram, false);
     clearInterval(progressInterval);

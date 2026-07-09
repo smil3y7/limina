@@ -2,6 +2,11 @@
 
 All notable changes to Limina are documented here.
 
+## v0.7.1
+
+### Fixed
+- **Pause/resume produced no sound.** Pausing used to suspend the entire `AudioContext`; resuming rebuilt the audio graph immediately afterward without waiting for the context to actually leave its suspended state — on many browsers (especially mobile), audio nodes started against a still-suspended context stay silent. Pause now just fades out and stops the current audio graph while leaving the `AudioContext` running; resume rebuilds the graph the same way switching between programs already did (a path that was already proven reliable).
+
 ## v0.7
 
 ### Fixed
